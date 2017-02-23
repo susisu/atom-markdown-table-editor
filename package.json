@@ -1,0 +1,19 @@
+{
+  "name": "markdown-table-editor",
+  "main": "./lib/markdown-table-editor.js",
+  "version": "0.0.0",
+  "description": "",
+  "scripts": {
+    "lint": "eslint lib --fix"
+  },
+  "keywords": [],
+  "activationCommands": {},
+  "repository": "https://github.com/susisu/markdown-table-editor",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.16.1"
+  }
+}
