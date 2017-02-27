@@ -1,0 +1,6 @@
+{
+  "atom-text-editor:not(.mini):not(.autocomplete-active).markdown-table-editor-active": {
+    "tab": "markdown-table-editor:next-cell",
+    "shift-tab": "markdown-table-editor:previous-cell"
+  }
+}
