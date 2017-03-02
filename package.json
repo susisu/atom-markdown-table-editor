@@ -15,5 +15,8 @@
   },
   "devDependencies": {
     "eslint": "^3.16.1"
+  },
+  "dependencies": {
+    "eastasianwidth": "^0.1.1"
   }
 }
