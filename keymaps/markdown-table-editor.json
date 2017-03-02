@@ -5,6 +5,7 @@
     "alt-ctrl-up"   : "markdown-table-editor:align-center",
     "alt-ctrl-down" : "markdown-table-editor:align-default",
     "tab"           : "markdown-table-editor:next-cell",
-    "shift-tab"     : "markdown-table-editor:previous-cell"
+    "shift-tab"     : "markdown-table-editor:previous-cell",
+    "enter"         : "markdown-table-editor:next-row"
   }
 }
