@@ -1,5 +1,6 @@
 {
   "atom-text-editor:not(.mini):not(.autocomplete-active).markdown-table-editor-active": {
+    "escape"        : "markdown-table-editor:escape",
     "alt-ctrl-left" : "markdown-table-editor:align-left",
     "alt-ctrl-right": "markdown-table-editor:align-right",
     "alt-ctrl-up"   : "markdown-table-editor:align-center",
