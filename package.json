@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint lib --fix"
   },
-  "keywords": [],
+  "keywords": ["markdown", "table"],
   "activationCommands": {},
   "repository": "https://github.com/susisu/markdown-table-editor",
   "license": "MIT",
