@@ -4,12 +4,5 @@
     "tab"           : "markdown-table-editor:next-cell",
     "shift-tab"     : "markdown-table-editor:previous-cell",
     "enter"         : "markdown-table-editor:next-row"
-  },
-  ".platform-darwin atom-text-editor:not(.mini):not(.autocomplete-active).markdown-table-editor-active": {
-    "alt-ctrl-left" : "markdown-table-editor:align-left",
-    "alt-ctrl-right": "markdown-table-editor:align-right",
-    "alt-ctrl-up"   : "markdown-table-editor:align-center",
-    "alt-ctrl-down" : "markdown-table-editor:align-default",
-    "shift-cmd-i"   : "markdown-table-editor:insert-row"
   }
 }
