@@ -1,8 +1,8 @@
 {
   "atom-text-editor:not(.mini):not(.autocomplete-active).markdown-table-editor-active": {
-    "escape"        : "markdown-table-editor:escape",
-    "tab"           : "markdown-table-editor:next-cell",
-    "shift-tab"     : "markdown-table-editor:previous-cell",
-    "enter"         : "markdown-table-editor:next-row"
+    "escape"   : "markdown-table-editor:escape",
+    "tab"      : "markdown-table-editor:next-cell",
+    "shift-tab": "markdown-table-editor:previous-cell",
+    "enter"    : "markdown-table-editor:next-row"
   }
 }
