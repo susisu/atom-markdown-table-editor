@@ -1,3 +1,7 @@
+## 0.4.0
+* Modify behavior of "Next Cell"
+    - To move to the next row from the right end, press `enter` instead of `tab`
+
 ## 0.3.0
 * Add "Smart Cursor" option, which enables more sophisticated cursor movement (like MS Office)
 * Small changes
