@@ -1,3 +1,6 @@
+## 0.4.1
+* Improve settings' descriptions
+
 ## 0.4.0
 * Modify behavior of "Next Cell"
     - To move to the next row from the right end, press `enter` instead of `tab`
