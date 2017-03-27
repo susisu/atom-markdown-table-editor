@@ -1,3 +1,6 @@
+## 0.4.3
+* Small change
+
 ## 0.4.2
 * Add "Treat East Asian Ambiguous Characters As Wide" option
 
