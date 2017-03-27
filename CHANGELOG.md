@@ -1,3 +1,6 @@
+## 0.4.2
+* Add "Treat East Asian Ambiguous Characters As Wide" option
+
 ## 0.4.1
 * Improve settings' descriptions
 
