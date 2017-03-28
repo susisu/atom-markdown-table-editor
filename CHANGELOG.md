@@ -1,3 +1,6 @@
+## 0.4.4
+* Add "Always Wide/Narrow Characters" settings, allows to override character width
+
 ## 0.4.3
 * Small change
 
