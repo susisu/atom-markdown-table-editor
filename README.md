@@ -8,7 +8,7 @@ Markdown table editor/formatter
 * Move cursor from cell to cell
 * Alter column alignment
 * Insert and delete rows and columns
-* CJK characters support (enable "Use East Asian Width" from the settings)
+* CJK characters support
 
 ### Commands
 |     Name      |       Description       | Keybinding  |
