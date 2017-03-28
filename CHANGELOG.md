@@ -1,3 +1,7 @@
+## 0.5.0
+* Always enable Unicode East Asian Width features
+* Disable "Treat East Asian Ambiguous Characters As Wide" by default
+
 ## 0.4.4
 * Add "Always Wide/Narrow Characters" settings, allows to override character width
 
