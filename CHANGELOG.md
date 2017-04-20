@@ -1,3 +1,6 @@
+## 0.5.1
+* Replace library for computing East Asian Width property
+
 ## 0.5.0
 * Always enable Unicode East Asian Width features
 * Disable "Treat East Asian Ambiguous Characters As Wide" by default
