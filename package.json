@@ -4,7 +4,7 @@
   "version": "0.5.1",
   "description": "Markdown table editor/formatter",
   "scripts": {
-    "lint": "eslint lib --fix"
+    "lint": "eslint lib spec --fix"
   },
   "keywords": [
     "markdown",
