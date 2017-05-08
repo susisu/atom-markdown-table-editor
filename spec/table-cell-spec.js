@@ -62,7 +62,7 @@ describe('TableCell', () => {
     });
   });
 
-  describe('content', () => {
+  describe('get content', () => {
     it('should get the trimmed content of the cell', () => {
       const cell = new TableCell(' raw content ');
       expect(cell.content).toBe('raw content');
@@ -111,7 +111,7 @@ describe('TableCell', () => {
     });
   });
 
-  describe('alignment', () => {
+  describe('get alignment', () => {
     it('should get the alignment of the alignment cell', () => {
       {
         const cell = new TableCell(' -------- ');
