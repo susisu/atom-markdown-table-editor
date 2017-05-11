@@ -119,12 +119,18 @@ describe('TableRow', () => {
 
   describe('toText()', () => {
     it('should return the text representation of the row', () => {
-      const row = new TableRow(
-        [new TableCell(' foo '), new TableCell(' bar ')],
-        '',
-        ' '
-      );
-      expect(row.toText()).toBe('| foo | bar | ');
+      {
+        const row = new TableRow([], '', ' ');
+        expect(row.toText()).toBe('|| ');
+      }
+      {
+        const row = new TableRow(
+          [new TableCell(' foo '), new TableCell(' bar ')],
+          '',
+          ' '
+        );
+        expect(row.toText()).toBe('| foo | bar | ');
+      }
     });
   });
 
