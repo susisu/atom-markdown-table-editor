@@ -623,16 +623,280 @@ describe('markdown-table-editor', () => {
       });
     });
 
-    xdescribe('next-cell', () => {
-      it('should move focus to the next cell');
+    describe('next-cell', () => {
+      it('should move focus to the next cell', () => {
+        const text
+          = '| A | B | C | D |\n'
+          + ' | ---- |:---- | ----:|:----:| \n'
+          + '  | E | F | G | H |  \n';
+        waitsForPromise(() =>
+          prepareEditor('test.md', 'source.gfm', text).then(editor => {
+            editor.setCursorBufferPosition(new Point(0, 2));
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:next-cell');
+            const formatted
+              = '|  A  |  B  |  C  |  D  |\n'
+              + '| --- |:--- | ---:|:---:|\n'
+              + '| E   | F   |   G |  H  |\n';
+            expect(editor.getText()).toBe(formatted);
+            const sel = editor.getSelectedBufferRange();
+            expect(sel.start.row).toBe(0);
+            expect(sel.start.column).toBe(9);
+            expect(sel.end.row).toBe(0);
+            expect(sel.end.column).toBe(10);
+          })
+        );
+        waitsForPromise(() =>
+          prepareEditor('test.md', 'source.gfm', text).then(editor => {
+            editor.setCursorBufferPosition(new Point(0, 14));
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:next-cell');
+            const formatted
+              = '|  A  |  B  |  C  |  D  | \n'
+              + '| --- |:--- | ---:|:---:|\n'
+              + '| E   | F   |   G |  H  |\n';
+            expect(editor.getText()).toBe(formatted);
+            const pos = editor.getCursorBufferPosition();
+            expect(pos.row).toBe(0);
+            expect(pos.column).toBe(26);
+          })
+        );
+        waitsForPromise(() =>
+          prepareEditor('test.md', 'source.gfm', text).then(editor => {
+            editor.setCursorBufferPosition(new Point(0, 17));
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:next-cell');
+            const formatted
+              = '|  A  |  B  |  C  |  D  |     | \n'
+              + '| --- |:--- | ---:|:---:| --- |\n'
+              + '| E   | F   |   G |  H  |     |\n';
+            expect(editor.getText()).toBe(formatted);
+            const pos = editor.getCursorBufferPosition();
+            expect(pos.row).toBe(0);
+            expect(pos.column).toBe(32);
+          })
+        );
+        waitsForPromise(() =>
+          prepareEditor('test.md', 'source.gfm', text).then(editor => {
+            editor.setCursorBufferPosition(new Point(1, 3));
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:next-cell');
+            const formatted
+              = '|  A  |  B  |  C  |  D  |\n'
+              + '| --- |:--- | ---:|:---:|\n'
+              + '| E   | F   |   G |  H  |\n';
+            expect(editor.getText()).toBe(formatted);
+            const sel = editor.getSelectedBufferRange();
+            expect(sel.start.row).toBe(2);
+            expect(sel.start.column).toBe(2);
+            expect(sel.end.row).toBe(2);
+            expect(sel.end.column).toBe(3);
+          })
+        );
+      });
     });
 
-    xdescribe('previous-cell', () => {
-      it('should move focus to the previous cell');
+    describe('previous-cell', () => {
+      it('should move focus to the previous cell', () => {
+        const text
+          = '| A | B | C | D |\n'
+          + ' | ---- |:---- | ----:|:----:| \n'
+          + '  | E | F | G | H |  \n'
+          + '   | I | J | K | L |   \n';
+        waitsForPromise(() =>
+          prepareEditor('test.md', 'source.gfm', text).then(editor => {
+            editor.setCursorBufferPosition(new Point(0, 6));
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:previous-cell');
+            const formatted
+              = '|  A  |  B  |  C  |  D  |\n'
+              + '| --- |:--- | ---:|:---:|\n'
+              + '| E   | F   |   G |  H  |\n'
+              + '| I   | J   |   K |  L  |\n';
+            expect(editor.getText()).toBe(formatted);
+            const sel = editor.getSelectedBufferRange();
+            expect(sel.start.row).toBe(0);
+            expect(sel.start.column).toBe(3);
+            expect(sel.end.row).toBe(0);
+            expect(sel.end.column).toBe(4);
+          })
+        );
+        waitsForPromise(() =>
+          prepareEditor('test.md', 'source.gfm', text).then(editor => {
+            editor.setCursorBufferPosition(new Point(0, 2));
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:previous-cell');
+            const formatted
+              = '|  A  |  B  |  C  |  D  |\n'
+              + '| --- |:--- | ---:|:---:|\n'
+              + '| E   | F   |   G |  H  |\n'
+              + '| I   | J   |   K |  L  |\n';
+            expect(editor.getText()).toBe(formatted);
+            const sel = editor.getSelectedBufferRange();
+            expect(sel.start.row).toBe(0);
+            expect(sel.start.column).toBe(3);
+            expect(sel.end.row).toBe(0);
+            expect(sel.end.column).toBe(4);
+          })
+        );
+        waitsForPromise(() =>
+          prepareEditor('test.md', 'source.gfm', text).then(editor => {
+            editor.setCursorBufferPosition(new Point(1, 9));
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:previous-cell');
+            const formatted
+              = '|  A  |  B  |  C  |  D  |\n'
+              + '| --- |:--- | ---:|:---:|\n'
+              + '| E   | F   |   G |  H  |\n'
+              + '| I   | J   |   K |  L  |\n';
+            expect(editor.getText()).toBe(formatted);
+            const sel = editor.getSelectedBufferRange();
+            expect(sel.start.row).toBe(0);
+            expect(sel.start.column).toBe(21);
+            expect(sel.end.row).toBe(0);
+            expect(sel.end.column).toBe(22);
+          })
+        );
+        waitsForPromise(() =>
+          prepareEditor('test.md', 'source.gfm', text).then(editor => {
+            editor.setCursorBufferPosition(new Point(2, 4));
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:previous-cell');
+            const formatted
+              = '|  A  |  B  |  C  |  D  |\n'
+              + '| --- |:--- | ---:|:---:|\n'
+              + '| E   | F   |   G |  H  |\n'
+              + '| I   | J   |   K |  L  |\n';
+            expect(editor.getText()).toBe(formatted);
+            const sel = editor.getSelectedBufferRange();
+            expect(sel.start.row).toBe(0);
+            expect(sel.start.column).toBe(21);
+            expect(sel.end.row).toBe(0);
+            expect(sel.end.column).toBe(22);
+          })
+        );
+        waitsForPromise(() =>
+          prepareEditor('test.md', 'source.gfm', text).then(editor => {
+            editor.setCursorBufferPosition(new Point(3, 5));
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:previous-cell');
+            const formatted
+              = '|  A  |  B  |  C  |  D  |\n'
+              + '| --- |:--- | ---:|:---:|\n'
+              + '| E   | F   |   G |  H  |\n'
+              + '| I   | J   |   K |  L  |\n';
+            expect(editor.getText()).toBe(formatted);
+            const sel = editor.getSelectedBufferRange();
+            expect(sel.start.row).toBe(2);
+            expect(sel.start.column).toBe(21);
+            expect(sel.end.row).toBe(2);
+            expect(sel.end.column).toBe(22);
+          })
+        );
+      });
     });
 
-    xdescribe('next-row', () => {
-      it('should move focus to the next row');
+    describe('next-row', () => {
+      it('should move focus to the next row', () => {
+        const text
+          = '| A | B | C | D |\n'
+          + ' | ---- |:---- | ----:|:----:| \n'
+          + '  | E | F | G | H |  \n'
+          + '   | I | J | K | L |   \n';
+        waitsForPromise(() =>
+          prepareEditor('test.md', 'source.gfm', text).then(editor => {
+            editor.setCursorBufferPosition(new Point(0, 2));
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:next-row');
+            const formatted
+              = '|  A  |  B  |  C  |  D  |\n'
+              + '| --- |:--- | ---:|:---:|\n'
+              + '| E   | F   |   G |  H  |\n'
+              + '| I   | J   |   K |  L  |\n';
+            expect(editor.getText()).toBe(formatted);
+            const sel = editor.getSelectedBufferRange();
+            expect(sel.start.row).toBe(2);
+            expect(sel.start.column).toBe(2);
+            expect(sel.end.row).toBe(2);
+            expect(sel.end.column).toBe(3);
+          })
+        );
+        waitsForPromise(() =>
+          prepareEditor('test.md', 'source.gfm', text).then(editor => {
+            editor.setCursorBufferPosition(new Point(0, 6));
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:next-row');
+            const formatted
+              = '|  A  |  B  |  C  |  D  |\n'
+              + '| --- |:--- | ---:|:---:|\n'
+              + '| E   | F   |   G |  H  |\n'
+              + '| I   | J   |   K |  L  |\n';
+            expect(editor.getText()).toBe(formatted);
+            const sel = editor.getSelectedBufferRange();
+            expect(sel.start.row).toBe(2);
+            expect(sel.start.column).toBe(2);
+            expect(sel.end.row).toBe(2);
+            expect(sel.end.column).toBe(3);
+          })
+        );
+        waitsForPromise(() =>
+          prepareEditor('test.md', 'source.gfm', text).then(editor => {
+            editor.setCursorBufferPosition(new Point(1, 3));
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:next-row');
+            const formatted
+              = '|  A  |  B  |  C  |  D  |\n'
+              + '| --- |:--- | ---:|:---:|\n'
+              + '| E   | F   |   G |  H  |\n'
+              + '| I   | J   |   K |  L  |\n';
+            expect(editor.getText()).toBe(formatted);
+            const sel = editor.getSelectedBufferRange();
+            expect(sel.start.row).toBe(2);
+            expect(sel.start.column).toBe(2);
+            expect(sel.end.row).toBe(2);
+            expect(sel.end.column).toBe(3);
+          })
+        );
+        waitsForPromise(() =>
+          prepareEditor('test.md', 'source.gfm', text).then(editor => {
+            editor.setCursorBufferPosition(new Point(1, 9));
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:next-row');
+            const formatted
+              = '|  A  |  B  |  C  |  D  |\n'
+              + '| --- |:--- | ---:|:---:|\n'
+              + '| E   | F   |   G |  H  |\n'
+              + '| I   | J   |   K |  L  |\n';
+            expect(editor.getText()).toBe(formatted);
+            const sel = editor.getSelectedBufferRange();
+            expect(sel.start.row).toBe(2);
+            expect(sel.start.column).toBe(2);
+            expect(sel.end.row).toBe(2);
+            expect(sel.end.column).toBe(3);
+          })
+        );
+        waitsForPromise(() =>
+          prepareEditor('test.md', 'source.gfm', text).then(editor => {
+            editor.setCursorBufferPosition(new Point(2, 4));
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:next-row');
+            const formatted
+              = '|  A  |  B  |  C  |  D  |\n'
+              + '| --- |:--- | ---:|:---:|\n'
+              + '| E   | F   |   G |  H  |\n'
+              + '| I   | J   |   K |  L  |\n';
+            expect(editor.getText()).toBe(formatted);
+            const sel = editor.getSelectedBufferRange();
+            expect(sel.start.row).toBe(3);
+            expect(sel.start.column).toBe(2);
+            expect(sel.end.row).toBe(3);
+            expect(sel.end.column).toBe(3);
+          })
+        );
+        waitsForPromise(() =>
+          prepareEditor('test.md', 'source.gfm', text).then(editor => {
+            editor.setCursorBufferPosition(new Point(2, 8));
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:next-row');
+            const formatted
+              = '|  A  |  B  |  C  |  D  |\n'
+              + '| --- |:--- | ---:|:---:|\n'
+              + '| E   | F   |   G |  H  |\n'
+              + '| I   | J   |   K |  L  |\n';
+            expect(editor.getText()).toBe(formatted);
+            const sel = editor.getSelectedBufferRange();
+            expect(sel.start.row).toBe(3);
+            expect(sel.start.column).toBe(2);
+            expect(sel.end.row).toBe(3);
+            expect(sel.end.column).toBe(3);
+          })
+        );
+      });
     });
 
     xdescribe('insert-row', () => {
