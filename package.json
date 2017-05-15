@@ -31,10 +31,11 @@
       "description": "List of scopes in which the table editor will be enabled."
     },
     "minimumContentWidth": {
-      "order"  : 2,
-      "type"   : "integer",
-      "default": 3,
-      "minimum": 1
+      "order"      : 2,
+      "type"       : "integer",
+      "default"    : 3,
+      "minimum"    : 1,
+      "description": "The minimum content width of table cells."
     },
     "eawAmbiguousAsWide": {
       "order"      : 3,
@@ -61,7 +62,7 @@
       "order"      : 6,
       "type"       : "boolean",
       "default"    : false,
-      "description": "Remember column where the cursor will come back on \"Next Row\" command."
+      "description": "Remember column where the cursor will return back on \"Next Row\" command."
     }
   }
 }
