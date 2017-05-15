@@ -23,7 +23,7 @@ describe('markdown-table-editor', () => {
   });
 
   describe('activation', () => {
-    it('should activate table editor if the grammar is contained in the config', () => {
+    it('should be activated if the grammar is contained in the config', () => {
       atom.config.set('markdown-table-editor.grammars', ['source.gfm', 'text.md']);
       const text
         = '\n'
@@ -47,7 +47,7 @@ describe('markdown-table-editor', () => {
       );
     });
 
-    it('should not activate table editor if the grammar is not contained in the config', () => {
+    it('should not be activated if the grammar is not contained in the config', () => {
       atom.config.set('markdown-table-editor.grammars', ['text.md']);
       const text
         = '\n'
@@ -66,6 +66,25 @@ describe('markdown-table-editor', () => {
           editor.setCursorBufferPosition(new Point(3, 10));
           expect(elem.classList.contains('markdown-table-editor-active')).toBe(false);
           editor.setCursorBufferPosition(new Point(4, 0));
+          expect(elem.classList.contains('markdown-table-editor-active')).toBe(false);
+        })
+      );
+    });
+
+    it('should not be activated if there are two or more cursors', () => {
+      atom.config.set('markdown-table-editor.grammars', ['source.gfm', 'text.md']);
+      const text
+        = '\n'
+        + '| A | B | C | D |\n'
+        + ' | ---- |:---- | ----:|:----:| \n'
+        + '  | E | F | G | H |  \n';
+      waitsForPromise(() =>
+        prepareEditor('test.md', 'source.gfm', text).then(editor => {
+          const elem   = editor.getElement();
+          const cursor = editor.getLastCursor();
+          cursor.setBufferPosition(new Point(1, 0));
+          expect(elem.classList.contains('markdown-table-editor-active')).toBe(true);
+          editor.addCursorAtBufferPosition(new Point(2, 5));
           expect(elem.classList.contains('markdown-table-editor-active')).toBe(false);
         })
       );
