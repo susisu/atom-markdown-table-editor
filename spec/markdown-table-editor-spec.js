@@ -1200,4 +1200,127 @@ describe('markdown-table-editor', () => {
       });
     });
   });
+
+  describe('smart-cursor', () => {
+    beforeEach(() => {
+      atom.config.set('markdown-table-editor.grammars', ['source.gfm', 'text.md']);
+      atom.config.set('markdown-table-editor.minimumContentWidth', 3);
+      atom.config.set('markdown-table-editor.eawAmbiguousAsWide', false);
+      atom.config.set('markdown-table-editor.alwaysWideChars', '');
+      atom.config.set('markdown-table-editor.alwaysNarrowChars', '');
+      atom.config.set('markdown-table-editor.smartCursor', true);
+    });
+
+    it('should remember position to return while next-cell or next-row commands are executed', () => {
+      const text
+        = '| A | B | C | D |\n'
+        + ' | ---- |:---- | ----:|:----:| \n'
+        + '  | E | F | G | H |  \n'
+        + '   | I | J | K | L |   \n';
+
+      const formatted
+        = '|  A  |  B  |  C  |  D  |\n'
+        + '| --- |:--- | ---:|:---:|\n'
+        + '| E   | F   |   G |  H  |\n'
+        + '| I   | J   |   K |  L  |\n';
+
+      waitsForPromise(() =>
+        prepareEditor('test.md', 'source.gfm', text).then(editor => {
+          editor.setCursorBufferPosition(new Point(0, 2));
+          {
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:next-cell');
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:next-row');
+            expect(editor.getText()).toBe(formatted);
+            const sel = editor.getSelectedBufferRange();
+            expect(sel.start.row).toBe(2);
+            expect(sel.start.column).toBe(2);
+            expect(sel.end.row).toBe(2);
+            expect(sel.end.column).toBe(3);
+          }
+          {
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:next-cell');
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:next-cell');
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:next-row');
+            expect(editor.getText()).toBe(formatted);
+            const sel = editor.getSelectedBufferRange();
+            expect(sel.start.row).toBe(3);
+            expect(sel.start.column).toBe(2);
+            expect(sel.end.row).toBe(3);
+            expect(sel.end.column).toBe(3);
+          }
+        })
+      );
+
+      waitsForPromise(() =>
+        prepareEditor('test.md', 'source.gfm', text).then(editor => {
+          editor.setCursorBufferPosition(new Point(0, 6));
+          {
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:next-cell');
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:next-row');
+            expect(editor.getText()).toBe(formatted);
+            const sel = editor.getSelectedBufferRange();
+            expect(sel.start.row).toBe(2);
+            expect(sel.start.column).toBe(8);
+            expect(sel.end.row).toBe(2);
+            expect(sel.end.column).toBe(9);
+          }
+          {
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:next-cell');
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:next-cell');
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:next-row');
+            expect(editor.getText()).toBe(formatted);
+            const sel = editor.getSelectedBufferRange();
+            expect(sel.start.row).toBe(3);
+            expect(sel.start.column).toBe(8);
+            expect(sel.end.row).toBe(3);
+            expect(sel.end.column).toBe(9);
+          }
+        })
+      );
+    });
+
+    it('should forget position if some other command is executed or the cursor is moved', () => {
+      const text
+        = '| A | B | C | D |\n'
+        + ' | ---- |:---- | ----:|:----:| \n'
+        + '  | E | F | G | H |  \n'
+        + '   | I | J | K | L |   \n';
+
+      const formatted
+        = '|  A  |  B  |  C  |  D  |\n'
+        + '| --- |:--- | ---:|:---:|\n'
+        + '| E   | F   |   G |  H  |\n'
+        + '| I   | J   |   K |  L  |\n';
+
+      waitsForPromise(() =>
+        prepareEditor('test.md', 'source.gfm', text).then(editor => {
+          editor.setCursorBufferPosition(new Point(0, 2));
+          atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:next-cell');
+          atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:move-right');
+          atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:next-row');
+          expect(editor.getText()).toBe(formatted);
+          const sel = editor.getSelectedBufferRange();
+          expect(sel.start.row).toBe(2);
+          expect(sel.start.column).toBe(16);
+          expect(sel.end.row).toBe(2);
+          expect(sel.end.column).toBe(17);
+        })
+      );
+
+      waitsForPromise(() =>
+        prepareEditor('test.md', 'source.gfm', text).then(editor => {
+          editor.setCursorBufferPosition(new Point(0, 2));
+          atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:next-cell');
+          editor.setCursorBufferPosition(new Point(0, 15));
+          atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:next-row');
+          expect(editor.getText()).toBe(formatted);
+          const sel = editor.getSelectedBufferRange();
+          expect(sel.start.row).toBe(2);
+          expect(sel.start.column).toBe(16);
+          expect(sel.end.row).toBe(2);
+          expect(sel.end.column).toBe(17);
+        })
+      );
+    });
+  });
 });
