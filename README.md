@@ -4,11 +4,10 @@ Markdown table editor/formatter
 ![screenshot](https://github.com/susisu/markdown-table-editor/wiki/images/demo.gif)
 
 ## Features
-* Format table (automatically)
+* Format table
 * Move cursor from cell to cell
 * Alter column alignment
 * Insert and delete rows and columns
-* CJK characters support
 
 ### Commands
 |     Name      |       Description       | Keybinding  |
@@ -32,11 +31,10 @@ Markdown table editor/formatter
 | Insert Column | Insert an empty column  |             |
 | Delete Column | Delete current column   |             |
 
-*NOTE: To input newline, press `shift-enter` (or some equivalent) instead.*
+*NOTE: To input newline in table, press `shift-enter` (or some equivalent) instead.*
 
-You can select commands from the command palette (`shift-cmd-p`),
-but it will be more convenient if you add your own keybindings to `keymap.cson`.
-For example, these are the ones which I use:
+You can select commands from the command palette (`shift-ctrl-p` or `shift-cmd-p`), but it will be more convenient if you add some keybindings to your keymap file `keymap.cson`.
+These are the ones which I use, for example:
 
 ``` coffee
 'atom-text-editor:not(.mini):not(.autocomplete-active).markdown-table-editor-active':
