@@ -1,3 +1,6 @@
+## 0.5.2
+* Small improvements
+
 ## 0.5.1
 * Replace library for computing East Asian Width property
 
