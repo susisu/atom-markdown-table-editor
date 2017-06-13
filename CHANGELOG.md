@@ -1,3 +1,7 @@
+## 0.6.0
+* Use scopes instead of grammar to determine active or not
+    - The default config is changed from `source.gfm, text.md` to `table.gfm, table.storage.md`
+
 ## 0.5.2
 * Small improvements
 
