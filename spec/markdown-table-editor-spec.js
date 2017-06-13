@@ -23,8 +23,8 @@ describe('markdown-table-editor', () => {
   });
 
   describe('activation', () => {
-    it('should be activated if the grammar is contained in the config', () => {
-      atom.config.set('markdown-table-editor.grammars', ['source.gfm', 'text.md']);
+    it('should be activated if the current scope is contained in the config', () => {
+      atom.config.set('markdown-table-editor.scopes', ['source.gfm', 'text.md']);
       const text
         = '\n'
         + '| A | B | C | D |\n'
@@ -47,8 +47,8 @@ describe('markdown-table-editor', () => {
       );
     });
 
-    it('should not be activated if the grammar is not contained in the config', () => {
-      atom.config.set('markdown-table-editor.grammars', ['text.md']);
+    it('should not be activated if the current scope is not contained in the config', () => {
+      atom.config.set('markdown-table-editor.scopes', ['text.md']);
       const text
         = '\n'
         + '| A | B | C | D |\n'
@@ -72,7 +72,7 @@ describe('markdown-table-editor', () => {
     });
 
     it('should not be activated if there are two or more cursors', () => {
-      atom.config.set('markdown-table-editor.grammars', ['source.gfm', 'text.md']);
+      atom.config.set('markdown-table-editor.scopes', ['source.gfm', 'text.md']);
       const text
         = '\n'
         + '| A | B | C | D |\n'
@@ -93,7 +93,7 @@ describe('markdown-table-editor', () => {
 
   describe('commands', () => {
     beforeEach(() => {
-      atom.config.set('markdown-table-editor.grammars', ['source.gfm', 'text.md']);
+      atom.config.set('markdown-table-editor.scopes', ['source.gfm', 'text.md']);
       atom.config.set('markdown-table-editor.minimumContentWidth', 3);
       atom.config.set('markdown-table-editor.eawAmbiguousAsWide', false);
       atom.config.set('markdown-table-editor.alwaysWideChars', '');
@@ -1203,7 +1203,7 @@ describe('markdown-table-editor', () => {
 
   describe('smart-cursor', () => {
     beforeEach(() => {
-      atom.config.set('markdown-table-editor.grammars', ['source.gfm', 'text.md']);
+      atom.config.set('markdown-table-editor.scopes', ['source.gfm', 'text.md']);
       atom.config.set('markdown-table-editor.minimumContentWidth', 3);
       atom.config.set('markdown-table-editor.eawAmbiguousAsWide', false);
       atom.config.set('markdown-table-editor.alwaysWideChars', '');
