@@ -23,15 +23,15 @@
     "meaw": "^1.0.0"
   },
   "configSchema": {
-    "grammars": {
+    "scopes": {
       "order": 1,
       "type": "array",
       "items": {
         "type": "string"
       },
       "default": [
-        "source.gfm",
-        "text.md"
+        "table.gfm",
+        "table.storage.md"
       ],
       "description": "List of scopes in which the table editor will be enabled."
     },
