@@ -218,6 +218,27 @@ describe('markdown-table-editor', () => {
           })
         );
       });
+
+      it('should just format when the focus is out of the table', () => {
+        const text
+          = '| A | B | C | D |\n'
+          + ' | ---- |:---- | ----:|:----:| \n'
+          + '  | E | F | G | H |  \n';
+        waitsForPromise(() =>
+          prepareEditor('test.md', 'source.gfm', text).then(editor => {
+            editor.setCursorBufferPosition(new Point(0, 0));
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:align-left');
+            const formatted
+              = '|  A  |  B  |  C  |  D  |\n'
+              + '| --- |:--- | ---:|:---:|\n'
+              + '| E   | F   |   G |  H  |\n';
+            expect(editor.getText()).toBe(formatted);
+            const pos = editor.getCursorBufferPosition();
+            expect(pos.row).toBe(0);
+            expect(pos.column).toBe(0);
+          })
+        );
+      });
     });
 
     describe('align-right', () => {
@@ -252,6 +273,27 @@ describe('markdown-table-editor', () => {
             const pos = editor.getCursorBufferPosition();
             expect(pos.row).toBe(1);
             expect(pos.column).toBe(6);
+          })
+        );
+      });
+
+      it('should just format when the focus is out of the table', () => {
+        const text
+          = '| A | B | C | D |\n'
+          + ' | ---- |:---- | ----:|:----:| \n'
+          + '  | E | F | G | H |  \n';
+        waitsForPromise(() =>
+          prepareEditor('test.md', 'source.gfm', text).then(editor => {
+            editor.setCursorBufferPosition(new Point(0, 0));
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:align-right');
+            const formatted
+              = '|  A  |  B  |  C  |  D  |\n'
+              + '| --- |:--- | ---:|:---:|\n'
+              + '| E   | F   |   G |  H  |\n';
+            expect(editor.getText()).toBe(formatted);
+            const pos = editor.getCursorBufferPosition();
+            expect(pos.row).toBe(0);
+            expect(pos.column).toBe(0);
           })
         );
       });
@@ -292,6 +334,27 @@ describe('markdown-table-editor', () => {
           })
         );
       });
+
+      it('should just format when the focus is out of the table', () => {
+        const text
+          = '| A | B | C | D |\n'
+          + ' | ---- |:---- | ----:|:----:| \n'
+          + '  | E | F | G | H |  \n';
+        waitsForPromise(() =>
+          prepareEditor('test.md', 'source.gfm', text).then(editor => {
+            editor.setCursorBufferPosition(new Point(0, 0));
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:align-center');
+            const formatted
+              = '|  A  |  B  |  C  |  D  |\n'
+              + '| --- |:--- | ---:|:---:|\n'
+              + '| E   | F   |   G |  H  |\n';
+            expect(editor.getText()).toBe(formatted);
+            const pos = editor.getCursorBufferPosition();
+            expect(pos.row).toBe(0);
+            expect(pos.column).toBe(0);
+          })
+        );
+      });
     });
 
     describe('align-default', () => {
@@ -326,6 +389,27 @@ describe('markdown-table-editor', () => {
             const pos = editor.getCursorBufferPosition();
             expect(pos.row).toBe(1);
             expect(pos.column).toBe(23);
+          })
+        );
+      });
+
+      it('should just format when the focus is out of the table', () => {
+        const text
+          = '| A | B | C | D |\n'
+          + ' | ---- |:---- | ----:|:----:| \n'
+          + '  | E | F | G | H |  \n';
+        waitsForPromise(() =>
+          prepareEditor('test.md', 'source.gfm', text).then(editor => {
+            editor.setCursorBufferPosition(new Point(0, 0));
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:align-default');
+            const formatted
+              = '|  A  |  B  |  C  |  D  |\n'
+              + '| --- |:--- | ---:|:---:|\n'
+              + '| E   | F   |   G |  H  |\n';
+            expect(editor.getText()).toBe(formatted);
+            const pos = editor.getCursorBufferPosition();
+            expect(pos.row).toBe(0);
+            expect(pos.column).toBe(0);
           })
         );
       });
