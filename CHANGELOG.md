@@ -1,3 +1,6 @@
+## 0.6.1
+* Fix error when trying to align a column but the cursor is out of the table (#4)
+
 ## 0.6.0
 * Use scopes instead of grammar to determine active or not
     - The default config is changed from `source.gfm, text.md` to `table.gfm, table.storage.md`
