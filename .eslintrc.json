@@ -91,7 +91,12 @@
     "func-name-matching": ["error"],
     "func-style": ["error", "declaration", {
       "allowArrowFunctions": true }],
-    "indent": ["error", 2],
+    "indent": ["error", 2, {
+      "VariableDeclarator": {
+        "var": 2,
+        "let": 2,
+        "const": 3 },
+      "flatTernaryExpressions": true }],
     "jsx-quotes": ["error", "prefer-double"],
     "key-spacing": ["error", {
       "beforeColon": false,
