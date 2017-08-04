@@ -4,7 +4,8 @@
   "version": "0.6.1",
   "description": "Markdown table editor/formatter",
   "scripts": {
-    "lint": "eslint lib spec --fix"
+    "lint": "eslint lib spec",
+    "fix": "eslint lib spec --fix"
   },
   "keywords": [
     "markdown",
@@ -17,7 +18,7 @@
     "atom": ">=1.0.0 <2.0.0"
   },
   "devDependencies": {
-    "eslint": "^3.16.1"
+    "eslint": "^4.3.0"
   },
   "dependencies": {
     "meaw": "^1.0.0"

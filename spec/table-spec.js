@@ -744,8 +744,8 @@ describe('Table', () => {
         const completed = table.complete(options);
         expect(completed.table).toBeInstanceOf(Table);
         expect(completed.table.toText()).toBe(
-            '||\n'
-          + '| ----- |'
+          '||\n'
+        + '| ----- |'
         );
         expect(completed.alignmentInserted).toBe(true);
       }
@@ -761,9 +761,9 @@ describe('Table', () => {
         const completed = table.complete(options);
         expect(completed.table).toBeInstanceOf(Table);
         expect(completed.table.toText()).toBe(
-            '| |\n'
-          + '| ----- |\n'
-          + '  |   |'
+          '| |\n'
+        + '| ----- |\n'
+        + '  |   |'
         );
         expect(completed.alignmentInserted).toBe(true);
       }
@@ -787,9 +787,9 @@ describe('Table', () => {
         const completed = table.complete(options);
         expect(completed.table).toBeInstanceOf(Table);
         expect(completed.table.toText()).toBe(
-            '| foo | bar | \n'
-          + '| ----- | ----- |\n'
-          + '  | baz |   |'
+          '| foo | bar | \n'
+        + '| ----- | ----- |\n'
+        + '  | baz |   |'
         );
         expect(completed.alignmentInserted).toBe(true);
       }
@@ -818,9 +818,9 @@ describe('Table', () => {
         const completed = table.complete(options);
         expect(completed.table).toBeInstanceOf(Table);
         expect(completed.table.toText()).toBe(
-            '| foo | bar | \n'
-          + '| ---- |:----:|\n'
-          + '  | baz |   |'
+          '| foo | bar | \n'
+        + '| ---- |:----:|\n'
+        + '  | baz |   |'
         );
         expect(completed.alignmentInserted).toBe(false);
       }
@@ -848,9 +848,9 @@ describe('Table', () => {
         const completed = table.complete(options);
         expect(completed.table).toBeInstanceOf(Table);
         expect(completed.table.toText()).toBe(
-            '| foo | |\n'
-          + '| ---- |:----:|\n'
-          + '  | bar | baz |   '
+          '| foo | |\n'
+        + '| ---- |:----:|\n'
+        + '  | bar | baz |   '
         );
         expect(completed.alignmentInserted).toBe(false);
       }
@@ -879,9 +879,9 @@ describe('Table', () => {
         const completed = table.complete(options);
         expect(completed.table).toBeInstanceOf(Table);
         expect(completed.table.toText()).toBe(
-            '| foo | bar | \n'
-          + '| ---- |:----:|\n'
-          + '  | baz | nya |   '
+          '| foo | bar | \n'
+        + '| ---- |:----:|\n'
+        + '  | baz | nya |   '
         );
         expect(completed.alignmentInserted).toBe(false);
       }
@@ -903,9 +903,9 @@ describe('Table', () => {
         const completed = table.complete(options);
         expect(completed.table).toBeInstanceOf(Table);
         expect(completed.table.toText()).toBe(
-            '| foo | bar | \n'
-          + '| --- | --- |\n'
-          + '  | baz | nya |   '
+          '| foo | bar | \n'
+        + '| --- | --- |\n'
+        + '  | baz | nya |   '
         );
         expect(completed.alignmentInserted).toBe(true);
       }
@@ -943,8 +943,8 @@ describe('Table', () => {
         const formatted = table.format(options);
         expect(formatted.table).toBeInstanceOf(Table);
         expect(formatted.table.toText()).toBe(
-            '||\n'
-          + '||'
+          '||\n'
+        + '||'
         );
         expect(formatted.marginLeft).toBe('');
       }
@@ -977,8 +977,8 @@ describe('Table', () => {
         const formatted = table.format(options);
         expect(formatted.table).toBeInstanceOf(Table);
         expect(formatted.table.toText()).toBe(
-            '|  foo  |  bar  |  あ   |  Ω   |\n'
-          + '| foo   | bar   | あ    | Ω    |'
+          '|  foo  |  bar  |  あ   |  Ω   |\n'
+        + '| foo   | bar   | あ    | Ω    |'
         );
         expect(formatted.marginLeft).toBe('');
       }
@@ -1019,9 +1019,9 @@ describe('Table', () => {
         const formatted = table.format(options);
         expect(formatted.table).toBeInstanceOf(Table);
         expect(formatted.table.toText()).toBe(
-            '|  foo  |  bar  |  あ   |  Ω   |\n'
-          + '| ----- |:----- | -----:|:-----:|\n'
-          + '| foo   | bar   |    あ |  Ω   |'
+          '|  foo  |  bar  |  あ   |  Ω   |\n'
+        + '| ----- |:----- | -----:|:-----:|\n'
+        + '| foo   | bar   |    あ |  Ω   |'
         );
         expect(formatted.marginLeft).toBe('');
       }
@@ -1062,9 +1062,9 @@ describe('Table', () => {
         const formatted = table.format(options);
         expect(formatted.table).toBeInstanceOf(Table);
         expect(formatted.table.toText()).toBe(
-            '    |  foo  |  bar  |  あ   |  Ω   |\n'
-          + '    | ----- |:----- | -----:|:-----:|\n'
-          + '    | foo   | bar   |    あ |  Ω   |'
+          '    |  foo  |  bar  |  あ   |  Ω   |\n'
+        + '    | ----- |:----- | -----:|:-----:|\n'
+        + '    | foo   | bar   |    あ |  Ω   |'
         );
         expect(formatted.marginLeft).toBe('    ');
       }
@@ -1104,9 +1104,9 @@ describe('Table', () => {
         const formatted = table.format(options);
         expect(formatted.table).toBeInstanceOf(Table);
         expect(formatted.table.toText()).toBe(
-            '| foo | bar | あ  | Ω  |\n'
-          + '| --- |:--- | ---:|:---:|\n'
-          + '| foo | bar |  あ | Ω  |'
+          '| foo | bar | あ  | Ω  |\n'
+        + '| --- |:--- | ---:|:---:|\n'
+        + '| foo | bar |  あ | Ω  |'
         );
         expect(formatted.marginLeft).toBe('');
       }
@@ -1146,9 +1146,9 @@ describe('Table', () => {
         const formatted = table.format(options);
         expect(formatted.table).toBeInstanceOf(Table);
         expect(formatted.table.toText()).toBe(
-            '|  foo  |  bar  |  あ   |  Ω   |\n'
-          + '| ----- |:----- | -----:|:-----:|\n'
-          + '| foo   | bar   |    あ |  Ω   |'
+          '|  foo  |  bar  |  あ   |  Ω   |\n'
+        + '| ----- |:----- | -----:|:-----:|\n'
+        + '| foo   | bar   |    あ |  Ω   |'
         );
         expect(formatted.marginLeft).toBe('');
       }
@@ -1189,9 +1189,9 @@ describe('Table', () => {
         const formatted = table.format(options);
         expect(formatted.table).toBeInstanceOf(Table);
         expect(formatted.table.toText()).toBe(
-            '|  foo  |  bar  |  あ   |   Ω   |\n'
-          + '| ----- |:----- | -----:|:-----:|\n'
-          + '| foo   | bar   |    あ |   Ω   |'
+          '|  foo  |  bar  |  あ   |   Ω   |\n'
+        + '| ----- |:----- | -----:|:-----:|\n'
+        + '| foo   | bar   |    あ |   Ω   |'
         );
         expect(formatted.marginLeft).toBe('');
       }
@@ -1232,9 +1232,9 @@ describe('Table', () => {
         const formatted = table.format(options);
         expect(formatted.table).toBeInstanceOf(Table);
         expect(formatted.table.toText()).toBe(
-            '|  foo  |  bar  |  あ   |  Ω   |\n'
-          + '| ----- |:----- | -----:|:-----:|\n'
-          + '| foo   | bar   |    あ |  Ω   |'
+          '|  foo  |  bar  |  あ   |  Ω   |\n'
+        + '| ----- |:----- | -----:|:-----:|\n'
+        + '| foo   | bar   |    あ |  Ω   |'
         );
         expect(formatted.marginLeft).toBe('');
       }
@@ -1275,9 +1275,9 @@ describe('Table', () => {
         const formatted = table.format(options);
         expect(formatted.table).toBeInstanceOf(Table);
         expect(formatted.table.toText()).toBe(
-            '|  foo  |  bar  |  あ   |   Ω   |\n'
-          + '| ----- |:----- | -----:|:-----:|\n'
-          + '| foo   | bar   |    あ |   Ω   |'
+          '|  foo  |  bar  |  あ   |   Ω   |\n'
+        + '| ----- |:----- | -----:|:-----:|\n'
+        + '| foo   | bar   |    あ |   Ω   |'
         );
         expect(formatted.marginLeft).toBe('');
       }
@@ -1316,9 +1316,9 @@ describe('Table', () => {
         const formatted = table.format(options);
         expect(formatted.table).toBeInstanceOf(Table);
         expect(formatted.table.toText()).toBe(
-            '|  foo  |  bar  |  あ   |  Ω   |\n'
-          + '| ----- |:----- | -----:|:-----:|\n'
-          + '| foo   | bar   |    あ |  Ω   |'
+          '|  foo  |  bar  |  あ   |  Ω   |\n'
+        + '| ----- |:----- | -----:|:-----:|\n'
+        + '| foo   | bar   |    あ |  Ω   |'
         );
         expect(formatted.marginLeft).toBe('');
       }
@@ -1359,9 +1359,9 @@ describe('Table', () => {
         const formatted = table.format(options);
         expect(formatted.table).toBeInstanceOf(Table);
         expect(formatted.table.toText()).toBe(
-            '|  foo  |  bar  |  あ   |  Ω   |\n'
-          + '| ----- |:----- | -----:|:-----:|\n'
-          + '| foo   | bar   |    あ |  Ω   |'
+          '|  foo  |  bar  |  あ   |  Ω   |\n'
+        + '| ----- |:----- | -----:|:-----:|\n'
+        + '| foo   | bar   |    あ |  Ω   |'
         );
         expect(formatted.marginLeft).toBe('');
       }
