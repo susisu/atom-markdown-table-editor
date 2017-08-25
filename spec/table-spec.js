@@ -1368,6 +1368,178 @@ describe('Table', () => {
     });
   });
 
+  describe('formatEachRow(options)', () => {
+    it('should return an object containing a each-row formatted copy of the table and the left margin of all the rows', () => {
+      // no rows
+      {
+        const table = new Table([]);
+        const options = { minContentWidth: 5 };
+        const formatted = table.formatEachRow(options);
+        expect(formatted.table).toBeInstanceOf(Table);
+        expect(formatted.table.toText()).toBe('');
+        expect(formatted.marginLeft).toBe(0);
+      }
+      // no columns
+      {
+        const table = new Table([
+          new TableRow([], '', ' '),
+          new TableRow([], '  ', '   ')
+        ]);
+        const options = { minContentWidth: 5 };
+        const formatted = table.formatEachRow(options);
+        expect(formatted.table).toBeInstanceOf(Table);
+        expect(formatted.table.toText()).toBe(
+          '||\n'
+        + '||'
+        );
+        expect(formatted.marginLeft).toBe('');
+      }
+      // no alignment row
+      {
+        const table = new Table([
+          new TableRow(
+            [
+              new TableCell(' foo '), new TableCell(' bar '),
+              new TableCell(' あ '), new TableCell(' Ω ')
+            ],
+            '',
+            ' '
+          ),
+          new TableRow(
+            [
+              new TableCell(' foo '), new TableCell(' bar '),
+              new TableCell(' あ '), new TableCell(' Ω ')
+            ],
+            '  ',
+            '   '
+          )
+        ]);
+        const options = { minContentWidth: 5 };
+        const formatted = table.formatEachRow(options);
+        expect(formatted.table).toBeInstanceOf(Table);
+        expect(formatted.table.toText()).toBe(
+          '| foo | bar | あ | Ω |\n'
+        + '| foo | bar | あ | Ω |'
+        );
+        expect(formatted.marginLeft).toBe('');
+      }
+      // with alignment row
+      {
+        const table = new Table([
+          new TableRow(
+            [
+              new TableCell(' foo '), new TableCell(' bar '),
+              new TableCell(' あ '), new TableCell(' Ω ')
+            ],
+            '',
+            ' '
+          ),
+          new TableRow(
+            [
+              new TableCell(' ---- '), new TableCell(':---- '),
+              new TableCell(' ----:'), new TableCell(':----:')
+            ],
+            '',
+            ''
+          ),
+          new TableRow(
+            [
+              new TableCell(' foo '), new TableCell(' bar '),
+              new TableCell(' あ '), new TableCell(' Ω ')
+            ],
+            '  ',
+            '   '
+          )
+        ]);
+        const options = { minContentWidth: 5 };
+        const formatted = table.formatEachRow(options);
+        expect(formatted.table).toBeInstanceOf(Table);
+        expect(formatted.table.toText()).toBe(
+          '| foo | bar | あ | Ω |\n'
+        + '| ----- |:----- | -----:|:-----:|\n'
+        + '| foo | bar | あ | Ω |'
+        );
+        expect(formatted.marginLeft).toBe('');
+      }
+      // add left margin
+      {
+        const table = new Table([
+          new TableRow(
+            [
+              new TableCell(' foo '), new TableCell(' bar '),
+              new TableCell(' あ '), new TableCell(' Ω ')
+            ],
+            '    ',
+            ' '
+          ),
+          new TableRow(
+            [
+              new TableCell(' ---- '), new TableCell(':---- '),
+              new TableCell(' ----:'), new TableCell(':----:')
+            ],
+            '',
+            ''
+          ),
+          new TableRow(
+            [
+              new TableCell(' foo '), new TableCell(' bar '),
+              new TableCell(' あ '), new TableCell(' Ω ')
+            ],
+            '  ',
+            '   '
+          )
+        ]);
+        const options = { minContentWidth: 5 };
+        const formatted = table.formatEachRow(options);
+        expect(formatted.table).toBeInstanceOf(Table);
+        expect(formatted.table.toText()).toBe(
+          '    | foo | bar | あ | Ω |\n'
+        + '    | ----- |:----- | -----:|:-----:|\n'
+        + '    | foo | bar | あ | Ω |'
+        );
+        expect(formatted.marginLeft).toBe('    ');
+      }
+      // use 3 as default value for minContentWidth
+      {
+        const table = new Table([
+          new TableRow(
+            [
+              new TableCell(' foo '), new TableCell(' bar '),
+              new TableCell(' あ '), new TableCell(' Ω ')
+            ],
+            '',
+            ' '
+          ),
+          new TableRow(
+            [
+              new TableCell(' ---- '), new TableCell(':---- '),
+              new TableCell(' ----:'), new TableCell(':----:')
+            ],
+            '',
+            ''
+          ),
+          new TableRow(
+            [
+              new TableCell(' foo '), new TableCell(' bar '),
+              new TableCell(' あ '), new TableCell(' Ω ')
+            ],
+            '  ',
+            '   '
+          )
+        ]);
+        const options = {};
+        const formatted = table.formatEachRow(options);
+        expect(formatted.table).toBeInstanceOf(Table);
+        expect(formatted.table.toText()).toBe(
+          '| foo | bar | あ | Ω |\n'
+        + '| --- |:--- | ---:|:---:|\n'
+        + '| foo | bar | あ | Ω |'
+        );
+        expect(formatted.marginLeft).toBe('');
+      }
+    });
+  });
+
   describe('setAlignment(column, alignment, options)', () => {
     it('should update alignment of a column', () => {
       {
