@@ -94,6 +94,7 @@ describe('markdown-table-editor', () => {
   describe('commands', () => {
     beforeEach(() => {
       atom.config.set('markdown-table-editor.scopes', ['source.gfm', 'text.md']);
+      atom.config.set('markdown-table-editor.formatType', 'whole');
       atom.config.set('markdown-table-editor.minimumContentWidth', 3);
       atom.config.set('markdown-table-editor.eawAmbiguousAsWide', false);
       atom.config.set('markdown-table-editor.alwaysWideChars', '');
@@ -1288,6 +1289,7 @@ describe('markdown-table-editor', () => {
   describe('smart-cursor', () => {
     beforeEach(() => {
       atom.config.set('markdown-table-editor.scopes', ['source.gfm', 'text.md']);
+      atom.config.set('markdown-table-editor.formatType', 'whole');
       atom.config.set('markdown-table-editor.minimumContentWidth', 3);
       atom.config.set('markdown-table-editor.eawAmbiguousAsWide', false);
       atom.config.set('markdown-table-editor.alwaysWideChars', '');
