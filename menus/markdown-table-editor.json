@@ -1,0 +1,63 @@
+{
+  "menu": [
+    {
+      "label": "Packages",
+      "submenu": [
+        {
+          "label": "Markdown Table Editor",
+          "submenu": [
+            {
+              "label": "Format",
+              "command": "markdown-table-editor:format"
+            },
+            {
+              "type": "separator"
+            },
+            {
+              "label": "Align Left",
+              "command": "markdown-table-editor:align-left"
+            },
+            {
+              "label": "Align Right",
+              "command": "markdown-table-editor:align-right"
+            },
+            {
+              "label": "Align Center",
+              "command": "markdown-table-editor:align-center"
+            },
+            {
+              "label": "Align Default",
+              "command": "markdown-table-editor:align-default"
+            },
+            {
+              "type": "separator"
+            },
+            {
+              "label": "Select Cell",
+              "command": "markdown-table-editor:select-cell"
+            },
+            {
+              "type": "separator"
+            },
+            {
+              "label": "Insert Row",
+              "command": "markdown-table-editor:insert-row"
+            },
+            {
+              "label": "Delete Row",
+              "command": "markdown-table-editor:delete-row"
+            },
+            {
+              "label": "Insert Column",
+              "command": "markdown-table-editor:insert-column"
+            },
+            {
+              "label": "Delete Column",
+              "command": "markdown-table-editor:delete-column"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
