@@ -1,4 +1,5 @@
 ## 0.6.2
+* Add menu items
 * Add "Format Type" config, which specifies how a table is formatted on each operation
 * Add a command to switch the format type
 
