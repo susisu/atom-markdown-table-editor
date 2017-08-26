@@ -4,37 +4,40 @@ Markdown table editor/formatter
 ![screenshot](https://github.com/susisu/markdown-table-editor/wiki/images/demo.gif)
 
 ## Features
-* Format table
-* Move cursor from cell to cell
-* Alter column alignment
+* Format tables
+* Move the cursor from cell to cell
+* Alter column's alignment
 * Insert and delete rows and columns
 
 ### Commands
-|     Name      |       Description       | Keybinding  |
-| ------------- | ----------------------- | ----------- |
-| Next Cell     | Move to next cell       | `tab`       |
-| Previous Cell | Move to previous cell   | `shift-tab` |
-| Next Row      | Move to next row        | `enter`     |
-| Escape        | Escape from table       | `escape`    |
-| Format        | Just format table       |             |
-| Align Left    | Left-align column       |             |
-| Align Right   | Right-align column      |             |
-| Align Center  | Center-align column     |             |
-| Align Default | Remove column alignment |             |
-| Select Cell   | Select cell content     |             |
-| Move Left     | Move to left cell       |             |
-| Move Right    | Move to right cell      |             |
-| Move Up       | Move to upper cell      |             |
-| Move Down     | Move to lower cell      |             |
-| Insert Row    | Insert an empty row     |             |
-| Delete Row    | Delete current row      |             |
-| Insert Column | Insert an empty column  |             |
-| Delete Column | Delete current column   |             |
+|        Name        |          Description          |            Keybinding             |
+| ------------------ | ----------------------------- | --------------------------------- |
+| Next Cell          | Move to the next cell         | <kbd>tab</kbd>                    |
+| Previous Cell      | Move to the previous cell     | <kbd>shift</kbd> + <kbd>tab</kbd> |
+| Next Row           | Move to the next row          | <kbd>enter</kbd>                  |
+| Escape             | Escape from the table         | <kbd>escape</kbd>                 |
+| Format             | Just format the table         |                                   |
+| Align Left         | Left-align the column         |                                   |
+| Align Right        | Right-align the column        |                                   |
+| Align Center       | Center-align the column       |                                   |
+| Align Default      | Remove the column's alignment |                                   |
+| Select Cell        | Select the cell content       |                                   |
+| Move Left          | Move to the left cell         |                                   |
+| Move Right         | Move to the right cell        |                                   |
+| Move Up            | Move to the upper cell        |                                   |
+| Move Down          | Move to the lower cell        |                                   |
+| Insert Row         | Insert an empty row           |                                   |
+| Delete Row         | Delete the row                |                                   |
+| Insert Column      | Insert an empty column        |                                   |
+| Delete Column      | Delete the column             |                                   |
+| Switch Format Type | Switch "Format Type" config   |                                   |
 
-*NOTE: To input newline in table, press `shift-enter` (or some equivalent) instead.*
+*NOTE: To input a newline purposely in a table, press <kbd>shift</kbd> + <kbd>enter</kbd> (or some equivalent) instead.*
 
-You can select commands from the command palette (`shift-ctrl-p` or `shift-cmd-p`), but it will be more convenient if you add some keybindings to your keymap file `keymap.cson`.
-These are the ones which I use, for example:
+You can execute commands from the command palette (Windows, Linux: <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>p</kbd> / macOS: <kbd>cmd</kbd> + <kbd>shift</kbd> + <kbd>p</kbd>) or from the Packages menu.
+
+It will be more convenient if you add keybindings to your `keymap.cson`.
+These are the ones which I use, FYI:
 
 ``` coffee
 'atom-text-editor:not(.mini):not(.autocomplete-active).markdown-table-editor-active':
