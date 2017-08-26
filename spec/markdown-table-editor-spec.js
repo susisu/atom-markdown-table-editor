@@ -102,6 +102,21 @@ describe('markdown-table-editor', () => {
       atom.config.set('markdown-table-editor.smartCursor', false);
     });
 
+    describe('switch-format-type', () => {
+      it('should switch "Formatt Type" config', () => {
+        waitsForPromise(() =>
+          prepareEditor('test.md', 'source.gfm', '').then(editor => {
+            editor.setCursorBufferPosition(new Point(0, 0));
+            expect(atom.config.get('markdown-table-editor.formatType')).toBe('whole');
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:switch-format-type');
+            expect(atom.config.get('markdown-table-editor.formatType')).toBe('row');
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:switch-format-type');
+            expect(atom.config.get('markdown-table-editor.formatType')).toBe('whole');
+          })
+        );
+      });
+    });
+
     describe('format', () => {
       it('should format a table', () => {
         const text
