@@ -1,5 +1,9 @@
+## 0.6.2
+* Add "Format Type" config, which specifies how a table is formatted on each operation
+* Add a command to switch the format type
+
 ## 0.6.1
-* Fix error when trying to align a column but the cursor is out of the table (#4)
+* Fix error when trying to align a column but the cursor is out of the table ([#4](https://github.com/susisu/markdown-table-editor/issues/4))
 
 ## 0.6.0
 * Use scopes instead of grammar to determine active or not
