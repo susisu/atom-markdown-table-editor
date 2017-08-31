@@ -3,6 +3,43 @@ Markdown table editor/formatter
 
 ![screenshot](https://github.com/susisu/markdown-table-editor/wiki/images/demo.gif)
 
+## Quick guide
+0. Set editor's grammar to `GitHub Markdown` or `Markdown`.
+1. Input a pipe `|` and some content (cursor position is indicated by `_`).
+``` markdown
+| foo_
+```
+(If you are using [language-markdown](https://atom.io/packages/language-markdown), don't forget a space after the pipe.)
+2. Hit <kbd>tab</kbd> to move to the next cell.
+``` markdown
+| foo | _
+| --- |
+```
+3. Continue typing.
+``` markdown
+| foo | bar | _
+| --- | --- |
+```
+4. Hit <kbd>enter</kbd> to move to the next row.
+``` markdown
+| foo | bar |
+| --- | --- |
+| _   |     |
+```
+5. Continue typing...
+``` markdown
+| foo | bar |
+| --- | --- |
+| baz | _   |
+```
+6. Hit <kbd>esc</kbd> to finish editing table.
+``` markdown
+| foo | bar |
+| --- | --- |
+| baz |     |
+_
+```
+
 ## Features
 * Format tables
 * Move the cursor from cell to cell
@@ -10,7 +47,7 @@ Markdown table editor/formatter
 * Insert and delete rows and columns
 
 ### Commands
-|        Name        |          Description          |            Keybinding             |
+| Name               | Description                   | Keybinding                        |
 | ------------------ | ----------------------------- | --------------------------------- |
 | Next Cell          | Move to the next cell         | <kbd>tab</kbd>                    |
 | Previous Cell      | Move to the previous cell     | <kbd>shift</kbd> + <kbd>tab</kbd> |
