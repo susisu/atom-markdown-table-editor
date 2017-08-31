@@ -6,39 +6,39 @@ Markdown table editor/formatter
 ## Quick guide
 0. Set editor's grammar to `GitHub Markdown` or `Markdown`.
 1. Input a pipe `|` and some content (cursor position is indicated by `_`).
-``` markdown
-| foo_
-```
-(If you are using [language-markdown](https://atom.io/packages/language-markdown), don't forget a space after the pipe.)
+    ``` markdown
+    | foo_
+    ```
+    (If you are using [language-markdown](https://atom.io/packages/language-markdown), don't forget a   space after the pipe.)
 2. Hit <kbd>tab</kbd> to move to the next cell.
-``` markdown
-| foo | _
-| --- |
-```
+    ``` markdown
+    | foo | _
+    | --- |
+    ```
 3. Continue typing.
-``` markdown
-| foo | bar | _
-| --- | --- |
-```
+    ``` markdown
+    | foo | bar | _
+    | --- | --- |
+    ```
 4. Hit <kbd>enter</kbd> to move to the next row.
-``` markdown
-| foo | bar |
-| --- | --- |
-| _   |     |
-```
+    ``` markdown
+    | foo | bar |
+    | --- | --- |
+    | _   |     |
+    ```
 5. Continue typing...
-``` markdown
-| foo | bar |
-| --- | --- |
-| baz | _   |
-```
+    ``` markdown
+    | foo | bar |
+    | --- | --- |
+    | baz | _   |
+    ```
 6. Hit <kbd>esc</kbd> to finish editing table.
-``` markdown
-| foo | bar |
-| --- | --- |
-| baz |     |
-_
-```
+    ``` markdown
+    | foo | bar |
+    | --- | --- |
+    | baz |     |
+    _
+    ```
 
 ## Features
 * Format tables
