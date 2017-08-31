@@ -4,7 +4,10 @@
 
 import { Point, Range } from 'atom';
 
-import { Alignment, TableCell, TableRow, Table, Focus } from '../lib/table.js';
+import {
+  Alignment, DefaultAlignment, HeaderAlignment,
+  TableCell, TableRow, Table, Focus
+} from '../lib/table.js';
 
 describe('Table', () => {
   describe('constructor(rows)', () => {
@@ -918,6 +921,8 @@ describe('Table', () => {
       {
         const table = new Table([]);
         const options = {
+          defaultAlignment : DefaultAlignment.LEFT,
+          headerAlignment  : HeaderAlignment.FOLLOW,
           minContentWidth  : 5,
           ambiguousAsWide  : true,
           alwaysWideChars  : new Set(),
@@ -935,6 +940,8 @@ describe('Table', () => {
           new TableRow([], '  ', '   ')
         ]);
         const options = {
+          defaultAlignment : DefaultAlignment.LEFT,
+          headerAlignment  : HeaderAlignment.CENTER,
           minContentWidth  : 5,
           ambiguousAsWide  : true,
           alwaysWideChars  : new Set(),
@@ -969,6 +976,8 @@ describe('Table', () => {
           )
         ]);
         const options = {
+          defaultAlignment : DefaultAlignment.LEFT,
+          headerAlignment  : HeaderAlignment.CENTER,
           minContentWidth  : 5,
           ambiguousAsWide  : true,
           alwaysWideChars  : new Set(),
@@ -1011,6 +1020,8 @@ describe('Table', () => {
           )
         ]);
         const options = {
+          defaultAlignment : DefaultAlignment.LEFT,
+          headerAlignment  : HeaderAlignment.CENTER,
           minContentWidth  : 5,
           ambiguousAsWide  : true,
           alwaysWideChars  : new Set(),
@@ -1054,6 +1065,8 @@ describe('Table', () => {
           )
         ]);
         const options = {
+          defaultAlignment : DefaultAlignment.LEFT,
+          headerAlignment  : HeaderAlignment.CENTER,
           minContentWidth  : 5,
           ambiguousAsWide  : true,
           alwaysWideChars  : new Set(),
@@ -1097,6 +1110,8 @@ describe('Table', () => {
           )
         ]);
         const options = {
+          defaultAlignment : DefaultAlignment.LEFT,
+          headerAlignment  : HeaderAlignment.CENTER,
           ambiguousAsWide  : true,
           alwaysWideChars  : new Set(),
           alwaysNarrowChars: new Set()
@@ -1139,6 +1154,8 @@ describe('Table', () => {
           )
         ]);
         const options = {
+          defaultAlignment : DefaultAlignment.LEFT,
+          headerAlignment  : HeaderAlignment.CENTER,
           minContentWidth  : 5,
           alwaysWideChars  : new Set(),
           alwaysNarrowChars: new Set()
@@ -1181,6 +1198,8 @@ describe('Table', () => {
           )
         ]);
         const options = {
+          defaultAlignment : DefaultAlignment.LEFT,
+          headerAlignment  : HeaderAlignment.CENTER,
           minContentWidth  : 5,
           ambiguousAsWide  : false,
           alwaysWideChars  : new Set(),
@@ -1224,6 +1243,8 @@ describe('Table', () => {
           )
         ]);
         const options = {
+          defaultAlignment : DefaultAlignment.LEFT,
+          headerAlignment  : HeaderAlignment.CENTER,
           minContentWidth  : 5,
           ambiguousAsWide  : false,
           alwaysWideChars  : new Set('Ω'),
@@ -1267,6 +1288,8 @@ describe('Table', () => {
           )
         ]);
         const options = {
+          defaultAlignment : DefaultAlignment.LEFT,
+          headerAlignment  : HeaderAlignment.CENTER,
           minContentWidth  : 5,
           ambiguousAsWide  : true,
           alwaysWideChars  : new Set(),
@@ -1310,8 +1333,10 @@ describe('Table', () => {
           )
         ]);
         const options = {
-          minContentWidth: 5,
-          ambiguousAsWide: true
+          defaultAlignment: DefaultAlignment.LEFT,
+          headerAlignment : HeaderAlignment.CENTER,
+          minContentWidth : 5,
+          ambiguousAsWide : true
         };
         const formatted = table.format(options);
         expect(formatted.table).toBeInstanceOf(Table);
@@ -1351,6 +1376,8 @@ describe('Table', () => {
           )
         ]);
         const options = {
+          defaultAlignment : DefaultAlignment.LEFT,
+          headerAlignment  : HeaderAlignment.CENTER,
           minContentWidth  : 5,
           ambiguousAsWide  : true,
           alwaysWideChars  : new Set('Ω'),

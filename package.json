@@ -52,36 +52,80 @@
       ],
       "description": "Specifies how a table is formatted on each operation."
     },
-    "minimumContentWidth": {
+    "defaultAlignment": {
       "order": 3,
+      "type": "string",
+      "default": "left",
+      "enum": [
+        {
+          "value": "left",
+          "description": "Left"
+        },
+        {
+          "value": "right",
+          "description": "Right"
+        },
+        {
+          "value": "center",
+          "description": "Center"
+        }
+      ],
+      "description": "Default alignment of table cells."
+    },
+    "headerAlignment": {
+      "order": 4,
+      "type": "string",
+      "default": "follow",
+      "enum": [
+        {
+          "value": "follow",
+          "description": "Follow column's alignment"
+        },
+        {
+          "value": "left",
+          "description": "Left"
+        },
+        {
+          "value": "right",
+          "description": "Right"
+        },
+        {
+          "value": "center",
+          "description": "Center"
+        }
+      ],
+      "description": "Alignment of table header cells."
+    },
+    "minimumContentWidth": {
+      "order": 5,
       "type": "integer",
       "default": 3,
       "minimum": 1,
       "description": "Minimum content width of table cells."
     },
     "eawAmbiguousAsWide": {
-      "order": 4,
+      "order": 6,
       "title": "Treat East Asian Ambiguous Characters As Wide",
       "type": "boolean",
       "default": false,
       "description": "Unicode East Asian Ambiguous characters are treated as wide."
     },
     "alwaysWideChars": {
-      "order": 5,
+      "order": 7,
       "title": "Always Wide Characters",
       "type": "string",
       "default": "",
       "description": "String of characters that should be treated as wide."
     },
     "alwaysNarrowChars": {
-      "order": 6,
+      "order": 8,
       "title": "Always Narrow Characters",
       "type": "string",
       "default": "",
       "description": "String of characters that should be treated as narrow."
     },
     "smartCursor": {
-      "order": 7,
+      "order": 9,
       "type": "boolean",
       "default": false,
       "description": "Remembers the column where the cursor will return back on \"Next Row\" command."
