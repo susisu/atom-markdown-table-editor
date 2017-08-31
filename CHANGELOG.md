@@ -1,3 +1,6 @@
+## 0.6.3
+* Add config to change default cell alignment and header cell alignment.
+
 ## 0.6.2
 * Add menu items
 * Add "Format Type" config, which specifies how a table is formatted on each operation
