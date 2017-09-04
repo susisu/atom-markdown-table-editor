@@ -65,8 +65,12 @@ Markdown table editor/formatter
 | Move Down          | Move to the lower cell        |                                   |
 | Insert Row         | Insert an empty row           |                                   |
 | Delete Row         | Delete the row                |                                   |
+| Move Row Up        | Move the row up               |                                   |
+| Move Row Down      | Move the row down             |                                   |
 | Insert Column      | Insert an empty column        |                                   |
 | Delete Column      | Delete the column             |                                   |
+| Move Column Left   | Move the column left          |                                   |
+| Move Column Right  | Move the column right         |                                   |
 | Switch Format Type | Switch "Format Type" config   |                                   |
 
 *NOTE: To input a newline purposely in a table, press <kbd>shift</kbd> + <kbd>enter</kbd> (or some equivalent) instead.*
@@ -78,16 +82,20 @@ These are the ones which I use, FYI:
 
 ``` coffee
 'atom-text-editor:not(.mini):not(.autocomplete-active).markdown-table-editor-active':
-  'shift-cmd-left' : 'markdown-table-editor:align-left'
-  'shift-cmd-right': 'markdown-table-editor:align-right'
-  'shift-cmd-up'   : 'markdown-table-editor:align-center'
-  'shift-cmd-down' : 'markdown-table-editor:align-default'
-  'cmd-left'       : 'markdown-table-editor:move-left'
-  'cmd-right'      : 'markdown-table-editor:move-right'
-  'cmd-up'         : 'markdown-table-editor:move-up'
-  'cmd-down'       : 'markdown-table-editor:move-down'
-  'cmd-k cmd-i'    : 'markdown-table-editor:insert-row'
-  'cmd-k alt-cmd-i': 'markdown-table-editor:delete-row'
-  'cmd-k cmd-j'    : 'markdown-table-editor:insert-column'
-  'cmd-k alt-cmd-j': 'markdown-table-editor:delete-column'
+  'cmd-left'           : 'markdown-table-editor:move-left'
+  'cmd-right'          : 'markdown-table-editor:move-right'
+  'cmd-up'             : 'markdown-table-editor:move-up'
+  'cmd-down'           : 'markdown-table-editor:move-down'
+  'shift-cmd-left'     : 'markdown-table-editor:align-left'
+  'shift-cmd-right'    : 'markdown-table-editor:align-right'
+  'shift-cmd-up'       : 'markdown-table-editor:align-center'
+  'shift-cmd-down'     : 'markdown-table-editor:align-default'
+  'alt-shift-cmd-left' : 'markdown-table-editor:move-column-left'
+  'alt-shift-cmd-right': 'markdown-table-editor:move-column-right'
+  'alt-shift-cmd-up'   : 'markdown-table-editor:move-row-up'
+  'alt-shift-cmd-down' : 'markdown-table-editor:move-row-down'
+  'cmd-k cmd-i'        : 'markdown-table-editor:insert-row'
+  'cmd-k alt-cmd-i'    : 'markdown-table-editor:delete-row'
+  'cmd-k cmd-j'        : 'markdown-table-editor:insert-column'
+  'cmd-k alt-cmd-j'    : 'markdown-table-editor:delete-column'
 ```
