@@ -1,5 +1,8 @@
+## 0.6.4
+* Add "Move Row" and "Move Column" commands
+
 ## 0.6.3
-* Add config to change default cell alignment and header cell alignment.
+* Add config to change default cell alignment and header cell alignment
 
 ## 0.6.2
 * Add menu items
