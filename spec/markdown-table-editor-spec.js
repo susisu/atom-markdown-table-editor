@@ -1164,6 +1164,146 @@ describe('markdown-table-editor', () => {
       });
     });
 
+    describe('move-row-up', () => {
+      it('should move row up', () => {
+        const text
+          = '| A | B | C | D |\n'
+          + ' | ---- |:---- | ----:|:----:| \n'
+          + '  | E | F | G | H |  \n'
+          + '   | I | J | K | L |   \n';
+        waitsForPromise(() =>
+          prepareEditor('test.md', 'source.gfm', text).then(editor => {
+            editor.setCursorBufferPosition(new Point(0, 6));
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:move-row-up');
+            const formatted
+              = '|  A  |  B  |  C  |  D  |\n'
+              + '| --- |:--- | ---:|:---:|\n'
+              + '| E   | F   |   G |  H  |\n'
+              + '| I   | J   |   K |  L  |\n';
+            expect(editor.getText()).toBe(formatted);
+            const pos = editor.getCursorBufferPosition();
+            expect(pos.row).toBe(0);
+            expect(pos.column).toBe(9);
+          })
+        );
+        waitsForPromise(() =>
+          prepareEditor('test.md', 'source.gfm', text).then(editor => {
+            editor.setCursorBufferPosition(new Point(1, 9));
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:move-row-up');
+            const formatted
+              = '|  A  |  B  |  C  |  D  |\n'
+              + '| --- |:--- | ---:|:---:|\n'
+              + '| E   | F   |   G |  H  |\n'
+              + '| I   | J   |   K |  L  |\n';
+            expect(editor.getText()).toBe(formatted);
+            const pos = editor.getCursorBufferPosition();
+            expect(pos.row).toBe(1);
+            expect(pos.column).toBe(7);
+          })
+        );
+        waitsForPromise(() =>
+          prepareEditor('test.md', 'source.gfm', text).then(editor => {
+            editor.setCursorBufferPosition(new Point(2, 8));
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:move-row-up');
+            const formatted
+              = '|  A  |  B  |  C  |  D  |\n'
+              + '| --- |:--- | ---:|:---:|\n'
+              + '| E   | F   |   G |  H  |\n'
+              + '| I   | J   |   K |  L  |\n';
+            expect(editor.getText()).toBe(formatted);
+            const pos = editor.getCursorBufferPosition();
+            expect(pos.row).toBe(2);
+            expect(pos.column).toBe(8);
+          })
+        );
+        waitsForPromise(() =>
+          prepareEditor('test.md', 'source.gfm', text).then(editor => {
+            editor.setCursorBufferPosition(new Point(3, 9));
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:move-row-up');
+            const formatted
+              = '|  A  |  B  |  C  |  D  |\n'
+              + '| --- |:--- | ---:|:---:|\n'
+              + '| I   | J   |   K |  L  |\n'
+              + '| E   | F   |   G |  H  |\n';
+            expect(editor.getText()).toBe(formatted);
+            const pos = editor.getCursorBufferPosition();
+            expect(pos.row).toBe(2);
+            expect(pos.column).toBe(8);
+          })
+        );
+      });
+    });
+
+    describe('move-row-down', () => {
+      it('should move row down', () => {
+        const text
+          = '| A | B | C | D |\n'
+          + ' | ---- |:---- | ----:|:----:| \n'
+          + '  | E | F | G | H |  \n'
+          + '   | I | J | K | L |   \n';
+        waitsForPromise(() =>
+          prepareEditor('test.md', 'source.gfm', text).then(editor => {
+            editor.setCursorBufferPosition(new Point(0, 6));
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:move-row-down');
+            const formatted
+              = '|  A  |  B  |  C  |  D  |\n'
+              + '| --- |:--- | ---:|:---:|\n'
+              + '| E   | F   |   G |  H  |\n'
+              + '| I   | J   |   K |  L  |\n';
+            expect(editor.getText()).toBe(formatted);
+            const pos = editor.getCursorBufferPosition();
+            expect(pos.row).toBe(0);
+            expect(pos.column).toBe(9);
+          })
+        );
+        waitsForPromise(() =>
+          prepareEditor('test.md', 'source.gfm', text).then(editor => {
+            editor.setCursorBufferPosition(new Point(1, 9));
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:move-row-down');
+            const formatted
+              = '|  A  |  B  |  C  |  D  |\n'
+              + '| --- |:--- | ---:|:---:|\n'
+              + '| E   | F   |   G |  H  |\n'
+              + '| I   | J   |   K |  L  |\n';
+            expect(editor.getText()).toBe(formatted);
+            const pos = editor.getCursorBufferPosition();
+            expect(pos.row).toBe(1);
+            expect(pos.column).toBe(7);
+          })
+        );
+        waitsForPromise(() =>
+          prepareEditor('test.md', 'source.gfm', text).then(editor => {
+            editor.setCursorBufferPosition(new Point(2, 8));
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:move-row-down');
+            const formatted
+              = '|  A  |  B  |  C  |  D  |\n'
+              + '| --- |:--- | ---:|:---:|\n'
+              + '| I   | J   |   K |  L  |\n'
+              + '| E   | F   |   G |  H  |\n';
+            expect(editor.getText()).toBe(formatted);
+            const pos = editor.getCursorBufferPosition();
+            expect(pos.row).toBe(3);
+            expect(pos.column).toBe(8);
+          })
+        );
+        waitsForPromise(() =>
+          prepareEditor('test.md', 'source.gfm', text).then(editor => {
+            editor.setCursorBufferPosition(new Point(3, 9));
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:move-row-down');
+            const formatted
+              = '|  A  |  B  |  C  |  D  |\n'
+              + '| --- |:--- | ---:|:---:|\n'
+              + '| E   | F   |   G |  H  |\n'
+              + '| I   | J   |   K |  L  |\n';
+            expect(editor.getText()).toBe(formatted);
+            const pos = editor.getCursorBufferPosition();
+            expect(pos.row).toBe(3);
+            expect(pos.column).toBe(8);
+          })
+        );
+      });
+    });
+
     describe('insert-column', () => {
       it('should insert a new column', () => {
         const text
@@ -1297,6 +1437,146 @@ describe('markdown-table-editor', () => {
             expect(sel.start.column).toBe(2);
             expect(sel.end.row).toBe(2);
             expect(sel.end.column).toBe(3);
+          })
+        );
+      });
+    });
+
+    describe('move-column-left', () => {
+      it('should move column left', () => {
+        const text
+          = '| A | B | C | D |\n'
+          + ' | ---- |:---- | ----:|:----:| \n'
+          + '  | E | F | G | H |  \n'
+          + '   | I | J | K | L |   \n';
+        waitsForPromise(() =>
+          prepareEditor('test.md', 'source.gfm', text).then(editor => {
+            editor.setCursorBufferPosition(new Point(2, 2));
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:move-column-left');
+            const formatted
+              = '|  A  |  B  |  C  |  D  |\n'
+              + '| --- |:--- | ---:|:---:|\n'
+              + '| E   | F   |   G |  H  |\n'
+              + '| I   | J   |   K |  L  |\n';
+            expect(editor.getText()).toBe(formatted);
+            const pos = editor.getCursorBufferPosition();
+            expect(pos.row).toBe(2);
+            expect(pos.column).toBe(0);
+          })
+        );
+        waitsForPromise(() =>
+          prepareEditor('test.md', 'source.gfm', text).then(editor => {
+            editor.setCursorBufferPosition(new Point(2, 4));
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:move-column-left');
+            const formatted
+              = '|  A  |  B  |  C  |  D  |\n'
+              + '| --- |:--- | ---:|:---:|\n'
+              + '| E   | F   |   G |  H  |\n'
+              + '| I   | J   |   K |  L  |\n';
+            expect(editor.getText()).toBe(formatted);
+            const pos = editor.getCursorBufferPosition();
+            expect(pos.row).toBe(2);
+            expect(pos.column).toBe(2);
+          })
+        );
+        waitsForPromise(() =>
+          prepareEditor('test.md', 'source.gfm', text).then(editor => {
+            editor.setCursorBufferPosition(new Point(2, 8));
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:move-column-left');
+            const formatted
+              = '|  B  |  A  |  C  |  D  |\n'
+              + '|:--- | --- | ---:|:---:|\n'
+              + '| F   | E   |   G |  H  |\n'
+              + '| J   | I   |   K |  L  |\n';
+            expect(editor.getText()).toBe(formatted);
+            const pos = editor.getCursorBufferPosition();
+            expect(pos.row).toBe(2);
+            expect(pos.column).toBe(2);
+          })
+        );
+        waitsForPromise(() =>
+          prepareEditor('test.md', 'source.gfm', text).then(editor => {
+            editor.setCursorBufferPosition(new Point(2, 19));
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:move-column-left');
+            const formatted
+              = '|  A  |  B  |  C  |  D  |\n'
+              + '| --- |:--- | ---:|:---:|\n'
+              + '| E   | F   |   G |  H  |\n'
+              + '| I   | J   |   K |  L  |\n';
+            expect(editor.getText()).toBe(formatted);
+            const pos = editor.getCursorBufferPosition();
+            expect(pos.row).toBe(2);
+            expect(pos.column).toBe(25);
+          })
+        );
+      });
+    });
+
+    describe('move-column-right', () => {
+      it('should move column right', () => {
+        const text
+          = '| A | B | C | D |\n'
+          + ' | ---- |:---- | ----:|:----:| \n'
+          + '  | E | F | G | H |  \n'
+          + '   | I | J | K | L |   \n';
+        waitsForPromise(() =>
+          prepareEditor('test.md', 'source.gfm', text).then(editor => {
+            editor.setCursorBufferPosition(new Point(2, 19));
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:move-column-right');
+            const formatted
+              = '|  A  |  B  |  C  |  D  |\n'
+              + '| --- |:--- | ---:|:---:|\n'
+              + '| E   | F   |   G |  H  |\n'
+              + '| I   | J   |   K |  L  |\n';
+            expect(editor.getText()).toBe(formatted);
+            const pos = editor.getCursorBufferPosition();
+            expect(pos.row).toBe(2);
+            expect(pos.column).toBe(25);
+          })
+        );
+        waitsForPromise(() =>
+          prepareEditor('test.md', 'source.gfm', text).then(editor => {
+            editor.setCursorBufferPosition(new Point(2, 16));
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:move-column-right');
+            const formatted
+              = '|  A  |  B  |  C  |  D  |\n'
+              + '| --- |:--- | ---:|:---:|\n'
+              + '| E   | F   |   G |  H  |\n'
+              + '| I   | J   |   K |  L  |\n';
+            expect(editor.getText()).toBe(formatted);
+            const pos = editor.getCursorBufferPosition();
+            expect(pos.row).toBe(2);
+            expect(pos.column).toBe(21);
+          })
+        );
+        waitsForPromise(() =>
+          prepareEditor('test.md', 'source.gfm', text).then(editor => {
+            editor.setCursorBufferPosition(new Point(2, 12));
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:move-column-right');
+            const formatted
+              = '|  A  |  B  |  D  |  C  |\n'
+              + '| --- |:--- |:---:| ---:|\n'
+              + '| E   | F   |  H  |   G |\n'
+              + '| I   | J   |  L  |   K |\n';
+            expect(editor.getText()).toBe(formatted);
+            const pos = editor.getCursorBufferPosition();
+            expect(pos.row).toBe(2);
+            expect(pos.column).toBe(22);
+          })
+        );
+        waitsForPromise(() =>
+          prepareEditor('test.md', 'source.gfm', text).then(editor => {
+            editor.setCursorBufferPosition(new Point(2, 2));
+            atom.commands.dispatch(editor.getElement(), 'markdown-table-editor:move-column-right');
+            const formatted
+              = '|  A  |  B  |  C  |  D  |\n'
+              + '| --- |:--- | ---:|:---:|\n'
+              + '| E   | F   |   G |  H  |\n'
+              + '| I   | J   |   K |  L  |\n';
+            expect(editor.getText()).toBe(formatted);
+            const pos = editor.getCursorBufferPosition();
+            expect(pos.row).toBe(2);
+            expect(pos.column).toBe(0);
           })
         );
       });
