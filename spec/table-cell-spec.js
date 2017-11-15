@@ -1,5 +1,3 @@
-/* eslint-env jasmine */
-
 import { Alignment, TableCell } from '../lib/table.js';
 
 describe('TableCell', () => {

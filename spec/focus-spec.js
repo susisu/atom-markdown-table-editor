@@ -1,5 +1,3 @@
-/* eslint-env jasmine */
-
 import { Point } from 'atom';
 
 import { Focus } from '../lib/table.js';

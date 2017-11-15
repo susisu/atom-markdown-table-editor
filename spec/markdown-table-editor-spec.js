@@ -1,7 +1,3 @@
-
-/* eslint-env jasmine */
-/* global waitsForPromise */
-
 import { Point } from 'atom';
 
 function prepareEditor(name, scope, text) {

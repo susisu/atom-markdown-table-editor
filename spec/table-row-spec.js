@@ -1,5 +1,3 @@
-/* eslint-env jasmine */
-
 import { TableCell, TableRow } from '../lib/table.js';
 
 describe('TableRow', () => {
