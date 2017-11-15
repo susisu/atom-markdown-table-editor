@@ -96,7 +96,7 @@
         "var": 2,
         "let": 2,
         "const": 3 },
-      "flatTernaryExpressions": true }],
+      "ignoredNodes": ["ConditionalExpression"] }],
     "jsx-quotes": ["error", "prefer-double"],
     "key-spacing": ["error", {
       "beforeColon": false,
@@ -106,6 +106,8 @@
       "before": true,
       "after": true }],
     "linebreak-style": ["error", "unix"],
+    "lines-between-class-members": ["error", "always", {
+      "exceptAfterSingleLine": true }],
     "max-len": ["error", {
       "code": 100,
       "ignoreComments": true,
@@ -128,10 +130,24 @@
     "no-unneeded-ternary": ["error"],
     "no-whitespace-before-property": ["error"],
     "object-curly-spacing": ["error", "always"],
-    "operator-linebreak": ["error", "before"],
+    "operator-linebreak": ["error", "before", {
+      "overrides": {
+        "=": "after",
+        "+=": "after",
+        "-=": "after",
+        "*=": "after",
+        "/=": "after",
+        "%=": "after",
+        "**=": "after",
+        "<<=": "after",
+        ">>=": "after",
+        ">>>=": "after",
+        "&=": "after",
+        "^=": "after",
+        "|=": "after" } }],
     "padded-blocks": ["error", "never"],
     "quote-props": ["error", "consistent-as-needed"],
-    "quotes": ["error", "single"],
+    "quotes": ["error", "double"],
     "semi": ["error", "always"],
     "semi-spacing": ["error", {
       "before": false,
@@ -160,7 +176,10 @@
       "after": true }],
     "generator-star-spacing": ["error", {
       "before": false,
-      "after": true }],
+      "after": true,
+      "method": {
+        "before": true,
+        "after": false } }],
     "no-duplicate-imports": ["error"],
     "no-useless-computed-key": ["error"],
     "no-var": ["error"],
