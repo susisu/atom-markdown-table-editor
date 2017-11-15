@@ -1,4 +1,3 @@
-'use babel';
 
 /* eslint-env jasmine */
 /* global waitsForPromise */

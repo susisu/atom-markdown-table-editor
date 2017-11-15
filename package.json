@@ -21,8 +21,23 @@
     "eslint": "^4.11.0"
   },
   "dependencies": {
+    "atom-babel6-transpiler": "^1.1.2",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "meaw": "^1.0.0"
   },
+  "atomTranspilers": [
+    {
+      "glob": "{lib,spec}/*.js",
+      "transpiler": "atom-babel6-transpiler",
+      "options": {
+        "babel": {
+          "plugins": ["transform-es2015-modules-commonjs"],
+          "sourceMaps": "inline",
+          "babelrc": false
+        }
+      }
+    }
+  ],
   "configSchema": {
     "scopes": {
       "order": 1,

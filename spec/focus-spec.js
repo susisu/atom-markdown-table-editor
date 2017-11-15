@@ -1,5 +1,3 @@
-'use babel';
-
 /* eslint-env jasmine */
 
 import { Point } from 'atom';
