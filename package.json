@@ -21,6 +21,7 @@
     "eslint": "^4.11.0"
   },
   "dependencies": {
+    "@susisu/mte-kernel": "git+https://github.com/susisu/mte-kernel.git",
     "atom-babel6-transpiler": "^1.1.2",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "meaw": "^1.0.0"
@@ -31,7 +32,9 @@
       "transpiler": "atom-babel6-transpiler",
       "options": {
         "babel": {
-          "plugins": ["transform-es2015-modules-commonjs"],
+          "plugins": [
+            "transform-es2015-modules-commonjs"
+          ],
           "sourceMaps": "inline",
           "babelrc": false
         }
