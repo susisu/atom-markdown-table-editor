@@ -52,20 +52,20 @@
         "table.gfm",
         "table.storage.md"
       ],
-      "description": "List of scopes in which the table editor will be enabled."
+      "description": "List of scopes in which the table editor is enabled."
     },
     "formatType": {
       "order": 2,
       "type": "string",
-      "default": "whole",
+      "default": "normal",
       "enum": [
         {
-          "value": "whole",
-          "description": "Whole Table"
+          "value": "normal",
+          "description": "Normal"
         },
         {
-          "value": "row",
-          "description": "Each Row"
+          "value": "weak",
+          "description": "Weak"
         }
       ],
       "description": "Specifies how a table is formatted on each operation."
@@ -114,38 +114,46 @@
       ],
       "description": "Alignment of table header cells."
     },
-    "minimumContentWidth": {
+    "minDelimiterWidth": {
       "order": 5,
+      "title": "Minimum Delimiter Width",
       "type": "integer",
       "default": 3,
       "minimum": 1,
-      "description": "Minimum content width of table cells."
+      "description": "Minimum width of delimiter cells."
     },
-    "eawAmbiguousAsWide": {
+    "ambiguousAsWide": {
       "order": 6,
       "title": "Treat East Asian Ambiguous Characters As Wide",
       "type": "boolean",
       "default": false,
       "description": "Unicode East Asian Ambiguous characters are treated as wide."
     },
-    "alwaysWideChars": {
+    "wideChars": {
       "order": 7,
-      "title": "Always Wide Characters",
+      "title": "Wide Characters",
       "type": "string",
       "default": "",
       "description": "String of characters that should be treated as wide."
     },
-    "alwaysNarrowChars": {
+    "narrowChars": {
       "order": 8,
-      "title": "Always Narrow Characters",
+      "title": "Narrow Characters",
       "type": "string",
       "default": "",
       "description": "String of characters that should be treated as narrow."
     },
-    "smartCursor": {
+    "normalize": {
       "order": 9,
+      "title": "Unicode Normalization",
       "type": "boolean",
-      "default": false,
+      "default": true,
+      "description": "Normalize cell contents before computing their width."
+    },
+    "smartCursor": {
+      "order": 10,
+      "type": "boolean",
+      "default": true,
       "description": "Remembers the column where the cursor will return back on \"Next Row\" command."
     }
   }
