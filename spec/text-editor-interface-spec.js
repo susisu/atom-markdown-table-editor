@@ -1,5 +1,3 @@
-"use babel";
-
 import { Point, Range } from "@susisu/mte-kernel";
 
 import { TextEditorInterface } from "../lib/text-editor-interface.js";
