@@ -1,6 +1,6 @@
 import { Point, Range } from "@susisu/mte-kernel";
 
-import { TextEditorInterface } from "../lib/text-editor-interface.js";
+import TextEditorInterface from "../lib/text-editor-interface.js";
 
 function prepareEditor(name, scope, text) {
   return atom.workspace.open(name)
