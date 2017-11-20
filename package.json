@@ -12,7 +12,7 @@
     "table"
   ],
   "activationCommands": {},
-  "repository": "https://github.com/susisu/markdown-table-editor",
+  "repository": "https://github.com/susisu/atom-markdown-table-editor",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
