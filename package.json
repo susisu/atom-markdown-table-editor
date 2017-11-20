@@ -44,9 +44,10 @@
   "configSchema": {
     "formatOnSave": {
       "order": 1,
+      "title": "Format on Save",
       "type": "boolean",
       "default": false,
-      "description": "Formats all the tables in the text editor on save."
+      "description": "Formats all the tables on save."
     },
     "scopes": {
       "order": 2,
@@ -67,14 +68,13 @@
       "enum": [
         {
           "value": "normal",
-          "description": "Normal"
+          "description": "Normal - Cells in a column have the equal width"
         },
         {
           "value": "weak",
-          "description": "Weak"
+          "description": "Weak - Cells can have different widths"
         }
-      ],
-      "description": "Specifies how a table is formatted on each operation."
+      ]
     },
     "defaultAlignment": {
       "order": 4,
@@ -93,8 +93,7 @@
           "value": "center",
           "description": "Center"
         }
-      ],
-      "description": "Default alignment of table cells."
+      ]
     },
     "headerAlignment": {
       "order": 5,
@@ -117,23 +116,20 @@
           "value": "center",
           "description": "Center"
         }
-      ],
-      "description": "Alignment of table header cells."
+      ]
     },
     "minDelimiterWidth": {
       "order": 6,
-      "title": "Minimum Delimiter Width",
+      "title": "Minimum Width of Delimiters",
       "type": "integer",
       "default": 3,
-      "minimum": 1,
-      "description": "Minimum width of delimiter cells."
+      "minimum": 1
     },
     "ambiguousAsWide": {
       "order": 7,
-      "title": "Treat East Asian Ambiguous Characters As Wide",
+      "title": "Treat East Asian Ambiguous Characters as Wide",
       "type": "boolean",
-      "default": false,
-      "description": "Unicode East Asian Ambiguous characters are treated as wide."
+      "default": false
     },
     "wideChars": {
       "order": 8,
@@ -154,7 +150,7 @@
       "title": "Unicode Normalization",
       "type": "boolean",
       "default": true,
-      "description": "Normalizes cell contents before computing their width."
+      "description": "Computes cell widths based on normalized contents (NFC)."
     },
     "smartCursor": {
       "order": 11,
