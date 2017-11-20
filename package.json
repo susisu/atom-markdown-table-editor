@@ -23,8 +23,7 @@
   "dependencies": {
     "@susisu/mte-kernel": "1.0.0",
     "atom-babel6-transpiler": "^1.1.2",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
-    "meaw": "^1.0.0"
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0"
   },
   "atomTranspilers": [
     {
