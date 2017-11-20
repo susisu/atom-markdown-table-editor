@@ -1,3 +1,6 @@
+## 1.0.1
+* Fix a problem about smart cursor
+
 ## 1.0.0
 * Overhauled using [mte-kernel](https://github.com/susisu/mte-kernel)
 * Add "Format All" command
