@@ -1,3 +1,11 @@
+## 1.0.0
+* Overhauled using [mte-kernel](https://github.com/susisu/mte-kernel)
+* Add "Format All" command
+* Add "Format On Save" option and "Toggle Format On Save" command
+* Add "Unicode Normalization" option for computing text widths
+* Enable "Smart Cursor" by default
+* Rename some options (old ones will be automatically migrated to the new ones)
+
 ## 0.6.4
 * Add "Move Row" and "Move Column" commands
 
