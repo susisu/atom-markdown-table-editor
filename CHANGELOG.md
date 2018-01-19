@@ -1,3 +1,6 @@
+## 1.0.2
+* Disable Esc keymap in [vim-mode-plus](https://atom.io/packages/vim-mode-plus)
+
 ## 1.0.1
 * Fix a problem about smart cursor
 
