@@ -1,7 +1,7 @@
 {
   "name": "markdown-table-editor",
   "main": "./lib/markdown-table-editor.js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Markdown table editor/formatter",
   "scripts": {
     "lint": "eslint lib spec",
