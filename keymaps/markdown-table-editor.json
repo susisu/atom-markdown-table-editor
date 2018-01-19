@@ -1,8 +1,10 @@
 {
   "atom-text-editor:not(.mini):not(.autocomplete-active).markdown-table-editor-active": {
-    "escape"   : "markdown-table-editor:escape",
     "tab"      : "markdown-table-editor:next-cell",
     "shift-tab": "markdown-table-editor:previous-cell",
     "enter"    : "markdown-table-editor:next-row"
+  },
+  "atom-text-editor:not(.mini):not(.autocomplete-active):not(.vim-mode-plus).markdown-table-editor-active": {
+    "escape": "markdown-table-editor:escape"
   }
 }
