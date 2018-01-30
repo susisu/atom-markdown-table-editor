@@ -101,3 +101,8 @@ Here are the ones which I use:
   'cmd-k cmd-j'        : 'markdown-table-editor:insert-column'
   'cmd-k alt-cmd-j'    : 'markdown-table-editor:delete-column'
 ```
+
+## FAQ
+### My table does not align well when dealing with Chinese characters
+Use a monospaced font that includes glyphs for Chinese characters, such as [Noto Sans Mono CJK](https://github.com/googlei18n/noto-cjk).
+markdown-table-editor already supports East Asian characters including Chinese characters.
