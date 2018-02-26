@@ -46,7 +46,7 @@
       "title": "Format on Save",
       "type": "boolean",
       "default": false,
-      "description": "Formats all the tables on save."
+      "description": "Formats all tables on save."
     },
     "scopes": {
       "order": 2,
@@ -60,8 +60,15 @@
       ],
       "description": "List of scopes in which the table editor is enabled."
     },
-    "formatType": {
+    "leftMarginChars": {
       "order": 3,
+      "title": "Left Margin Characters",
+      "type": "string",
+      "default": "",
+      "description": "String of additional left margin characters."
+    },
+    "formatType": {
+      "order": 4,
       "type": "string",
       "default": "normal",
       "enum": [
@@ -76,7 +83,7 @@
       ]
     },
     "defaultAlignment": {
-      "order": 4,
+      "order": 5,
       "type": "string",
       "default": "left",
       "enum": [
@@ -95,7 +102,7 @@
       ]
     },
     "headerAlignment": {
-      "order": 5,
+      "order": 6,
       "type": "string",
       "default": "follow",
       "enum": [
@@ -118,41 +125,41 @@
       ]
     },
     "minDelimiterWidth": {
-      "order": 6,
+      "order": 7,
       "title": "Minimum Width of Delimiters",
       "type": "integer",
       "default": 3,
       "minimum": 1
     },
     "ambiguousAsWide": {
-      "order": 7,
+      "order": 8,
       "title": "Treat East Asian Ambiguous Characters as Wide",
       "type": "boolean",
       "default": false
     },
     "wideChars": {
-      "order": 8,
+      "order": 9,
       "title": "Wide Characters",
       "type": "string",
       "default": "",
       "description": "String of characters that should be treated as wide."
     },
     "narrowChars": {
-      "order": 9,
+      "order": 10,
       "title": "Narrow Characters",
       "type": "string",
       "default": "",
       "description": "String of characters that should be treated as narrow."
     },
     "normalize": {
-      "order": 10,
+      "order": 11,
       "title": "Unicode Normalization",
       "type": "boolean",
       "default": true,
       "description": "Computes cell widths based on normalized contents (NFC)."
     },
     "smartCursor": {
-      "order": 11,
+      "order": 12,
       "type": "boolean",
       "default": true,
       "description": "Remembers the column where the cursor will return back on \"Next Row\" command."
