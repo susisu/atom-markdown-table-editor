@@ -93,6 +93,7 @@ describe("markdown-table-editor", () => {
     beforeEach(() => {
       atom.config.set(`${NAMESPACE}.formatOnSave`, false);
       atom.config.set(`${NAMESPACE}.scopes`, ["source.gfm", "text.md"]);
+      atom.config.set(`${NAMESPACE}.leftMarginChars`, "");
       atom.config.set(`${NAMESPACE}.formatType`, FormatType.NORMAL);
       atom.config.set(`${NAMESPACE}.defaultAlignment`, DefaultAlignment.LEFT);
       atom.config.set(`${NAMESPACE}.headerAlignment`, HeaderAlignment.FOLLOW);
