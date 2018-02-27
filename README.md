@@ -5,11 +5,11 @@ Markdown table editor/formatter
 
 ## Quick guide
 0. Set editor's grammar to `GitHub Markdown` or `Markdown`.
-1. Input a pipe `|` and some content (cursor position is indicated by `_`).
+1. Input a pipe `|` and some content (the cursor position is indicated by `_`).
     ``` markdown
     | foo_
     ```
-    (If you are using [language-markdown](https://atom.io/packages/language-markdown), don't forget a space after the pipe.)
+    (If you are using [language-markdown](https://atom.io/packages/language-markdown), don't forget a space after a pipe.)
 2. Hit <kbd>tab</kbd> to move to the next cell.
     ``` markdown
     | foo | _
@@ -32,7 +32,7 @@ Markdown table editor/formatter
     | --- | --- |
     | baz | _   |
     ```
-6. Hit <kbd>esc</kbd> to finish editing table.
+6. Hit <kbd>esc</kbd> to finish editing the table.
     ``` markdown
     | foo | bar |
     | --- | --- |
@@ -79,7 +79,7 @@ Markdown table editor/formatter
 
 You can execute commands from the command palette (Windows, Linux: <kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>p</kbd> / macOS: <kbd>cmd</kbd> + <kbd>shift</kbd> + <kbd>p</kbd>) or from the Packages menu.
 
-It will be more convenient if you add keybindings to your `keymap.cson`.
+It will be more convenient if you add some keybindings to your `keymap.cson`.
 Here are the ones which I use:
 
 ``` coffee
@@ -103,6 +103,6 @@ Here are the ones which I use:
 ```
 
 ## FAQ
-### My table does not align well when dealing with Chinese characters
-Use a monospaced font that includes glyphs for Chinese characters, such as [Noto Sans Mono CJK](https://github.com/googlei18n/noto-cjk).
+### Q. My table does not align well when dealing with Chinese characters
+A. Use a monospaced font that includes glyphs for Chinese characters, such as [Noto Sans Mono CJK](https://github.com/googlei18n/noto-cjk).
 markdown-table-editor already supports East Asian characters including Chinese characters.

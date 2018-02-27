@@ -1,3 +1,7 @@
+## 1.1.0
+* Add "Left Margin Characters" config
+    - For example, you can enable markdown-table-editor in JavaScript comments by adding `comment.block.documentation.js` to "Scopes" and `*` to "Left Margin Characters".
+
 ## 1.0.2
 * Disable Esc keymap in [vim-mode-plus](https://atom.io/packages/vim-mode-plus)
 
