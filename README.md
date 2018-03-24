@@ -105,4 +105,8 @@ Here are the ones which I use:
 ## FAQ
 ### Q. My table does not align well when dealing with Chinese characters
 A. Use a monospaced font that includes glyphs for Chinese characters, such as [Noto Sans Mono CJK](https://github.com/googlei18n/noto-cjk).
-markdown-table-editor already supports East Asian characters including Chinese characters.
+markdown-table-editor supports East Asian characters including Chinese characters :)
+
+## For developers
+This package is based on [markdown-table-editor kernel](https://github.com/susisu/mte-kernel), which provides a text editor independent implementation of the functionality of the package.
+You can create a markdown-table-editor plugin for your favorite text editor with ease!
