@@ -1,3 +1,7 @@
+## 1.1.1
+* Add "Set Format Type" commands that can explicitly change "Format Type" config
+* Show notifications when config is changed by the commands
+
 ## 1.1.0
 * Add "Left Margin Characters" config
     - For example, you can enable markdown-table-editor in JavaScript comments by adding `comment.block.documentation.js` to "Scopes" and `*` to "Left Margin Characters".
