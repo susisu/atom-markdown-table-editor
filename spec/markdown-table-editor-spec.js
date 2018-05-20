@@ -135,6 +135,38 @@ describe("markdown-table-editor", () => {
       });
     });
 
+    describe("set-format-type-normal", () => {
+      it("should set \"Format Type\" to \"Normal\"", () => {
+        waitsForPromise(() =>
+          prepareEditor("test.md", "source.gfm", "").then(editor => {
+            editor.setCursorBufferPosition(new Point(0, 0));
+            expect(atom.config.get(`${NAMESPACE}.formatType`)).toBe(FormatType.NORMAL);
+            atom.commands.dispatch(editor.getElement(), `${NAMESPACE}:set-format-type-normal`);
+            expect(atom.config.get(`${NAMESPACE}.formatType`)).toBe(FormatType.NORMAL);
+            atom.config.set(`${NAMESPACE}.formatType`, FormatType.WEAK);
+            atom.commands.dispatch(editor.getElement(), `${NAMESPACE}:set-format-type-normal`);
+            expect(atom.config.get(`${NAMESPACE}.formatType`)).toBe(FormatType.NORMAL);
+          })
+        );
+      });
+    });
+
+    describe("set-format-type-weak", () => {
+      it("should set \"Format Type\" to \"Weak\"", () => {
+        waitsForPromise(() =>
+          prepareEditor("test.md", "source.gfm", "").then(editor => {
+            editor.setCursorBufferPosition(new Point(0, 0));
+            expect(atom.config.get(`${NAMESPACE}.formatType`)).toBe(FormatType.NORMAL);
+            atom.commands.dispatch(editor.getElement(), `${NAMESPACE}:set-format-type-weak`);
+            expect(atom.config.get(`${NAMESPACE}.formatType`)).toBe(FormatType.WEAK);
+            atom.config.set(`${NAMESPACE}.formatType`, FormatType.WEAK);
+            atom.commands.dispatch(editor.getElement(), `${NAMESPACE}:set-format-type-weak`);
+            expect(atom.config.get(`${NAMESPACE}.formatType`)).toBe(FormatType.WEAK);
+          })
+        );
+      });
+    });
+
     describe("format", () => {
       it("should format the table", () => {
         const text =
