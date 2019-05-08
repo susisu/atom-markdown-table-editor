@@ -1,3 +1,7 @@
+## 1.1.2
+* Update dependencies
+  * In particular, update Unicode East Asian Width to 12.1.0
+
 ## 1.1.1
 * Add "Set Format Type" commands that can explicitly change "Format Type" config
 * Show notifications when config is changed by the commands
