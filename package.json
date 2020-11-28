@@ -21,7 +21,7 @@
     "eslint": "^5.16.0"
   },
   "dependencies": {
-    "@susisu/mte-kernel": "^2.1.0",
+    "@susisu/mte-kernel": "^2.1.1",
     "atom-babel6-transpiler": "^1.2.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2"
   },

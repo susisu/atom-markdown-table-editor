@@ -1,3 +1,7 @@
+## 1.1.3
+* Fix [#31](https://github.com/susisu/atom-markdown-table-editor/issues/31)
+* Update Unicode East Asian Width to 13.0.0
+
 ## 1.1.2
 * Update dependencies
   * In particular, update Unicode East Asian Width to 12.1.0
